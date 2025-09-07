@@ -4,7 +4,7 @@ package ru.syspro;
  * Class that implements Heap Sort.
  *
  */
-public class Task_1_1_1 {
+public class Task111 {
 
     /**
      * Main method that starts sorting.
