@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.syspro.Task_1_1_1Test" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-09-07T09:31:58.021Z" hostname="LENOVOTHB" time="0.16">
+  <properties/>
+  <testcase name="testEmptyArray()" classname="ru.syspro.Task_1_1_1Test" time="0.122"/>
+  <testcase name="testMixedPositiveAndNegativeNumbers()" classname="ru.syspro.Task_1_1_1Test" time="0.007"/>
+  <testcase name="testRandomOrderArray()" classname="ru.syspro.Task_1_1_1Test" time="0.001"/>
+  <testcase name="testReverseSortedArray()" classname="ru.syspro.Task_1_1_1Test" time="0.003"/>
+  <testcase name="testSortedArray()" classname="ru.syspro.Task_1_1_1Test" time="0.007"/>
+  <testcase name="testSingleElementArray()" classname="ru.syspro.Task_1_1_1Test" time="0.009"/>
+  <testcase name="testNegativeNumbers()" classname="ru.syspro.Task_1_1_1Test" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
