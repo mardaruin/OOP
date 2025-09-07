@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"ru.syspro","c":"Task_1_1_1","l":"sort(int[])"},{"p":"ru.syspro","c":"Task_1_1_1","l":"Task_1_1_1()","u":"%3Cinit%3E()"}];updateSearchResults();
