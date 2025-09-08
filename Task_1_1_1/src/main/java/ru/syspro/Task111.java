@@ -18,7 +18,7 @@ public class Task111 {
             heapify(arr, n, i);
         }
 
-        for (int i = n-1; i >= 0; i--) {
+        for (int i = n - 1; i >= 0; i--) {
             swap(arr, 0, i);
             heapify(arr, i, 0);
         }

@@ -11,24 +11,10 @@ public class Main {
      */
     public static void main(String[] args) {
         int[] exampleArray = {12, 11, 13, 5, 6, 7};
-        System.out.println("Unsorted array:");
-        printArray(exampleArray);
+        System.out.println("Unsorted array: " + Arrays.toString(exampleArray));
 
         Task111.sort(exampleArray);
 
-        System.out.println("\nSorted array:");
-        printArray(exampleArray);
-    }
-
-    /**
-     * Helper function to print contents of an array.
-     *
-     * @param arr Array to be printed.
-     */
-    private static void printArray(int[] arr) {
-        for (int value : arr) {
-            System.out.print(value + " ");
-        }
-        System.out.println();
+        System.out.println("\nSorted array: " + Arrays.toString(exampleArray));
     }
 }
