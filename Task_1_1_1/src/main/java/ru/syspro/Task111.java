@@ -24,6 +24,14 @@ public class Task111 {
         }
     }
 
+    /**
+     * Helper function to maintain the property of max heap.
+     *
+     * @param arr The array where we want to maintain heap properties.
+     * @param n Size of the heap.
+     * @param i Index of element whose subtree needs heapification.
+     */
+
     private static void heapify(int[] arr, int n, int i) {
         int largest = i;
         int left = 2 * i + 1;
@@ -43,9 +51,47 @@ public class Task111 {
         }
     }
 
+    /**
+     * Utility function to swap two elements in an array.
+     *
+     * @param arr The array containing elements to swap.
+     * @param i Index of first element.
+     * @param j Index of second element.
+     */
+
     private static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
+    }
+
+    /**
+     * Entry point for running the program directly from the command-line.
+     *
+     * @param args Command-line arguments (not used here).
+     */
+    public static void main(String[] args) {
+        // Example usage
+        int[] exampleArray = {12, 11, 13, 5, 6, 7}; // Unsorted array
+        System.out.println("Unsorted array:");
+        printArray(exampleArray);
+
+        // Perform heap sort
+        sort(exampleArray);
+
+        System.out.println("\nSorted array:");
+        printArray(exampleArray);
+    }
+
+    /**
+     * Helper function to print contents of an array.
+     *
+     * @param arr Array to be printed.
+     */
+    private static void printArray(int[] arr) {
+        for (int value : arr) {
+            System.out.print(value + " ");
+        }
+        System.out.println();
     }
 }
