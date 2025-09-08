@@ -1,5 +1,7 @@
 package ru.syspro;
 
+import java.util.Arrays;
+
 /**
  * Entry point for running the program directly from the command-line.
  */
