@@ -1,1 +1,1 @@
-memberSearchIndex = [{"p":"ru.syspro","c":"Task111","l":"sort(int[])"},{"p":"ru.syspro","c":"Task111","l":"Task111()","u":"%3Cinit%3E()"}];updateSearchResults();
+memberSearchIndex = [{"p":"ru.syspro","c":"Task111","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"ru.syspro","c":"Task111","l":"sort(int[])"},{"p":"ru.syspro","c":"Task111","l":"Task111()","u":"%3Cinit%3E()"}];updateSearchResults();
