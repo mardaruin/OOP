@@ -64,30 +64,4 @@ public class Task111 {
         arr[i] = arr[j];
         arr[j] = temp;
     }
-
-
-    public static void main(String[] args) {
-        // Example usage
-        int[] exampleArray = {12, 11, 13, 5, 6, 7}; // Unsorted array
-        System.out.println("Unsorted array:");
-        printArray(exampleArray);
-
-        // Perform heap sort
-        sort(exampleArray);
-
-        System.out.println("\nSorted array:");
-        printArray(exampleArray);
-    }
-
-    /**
-     * Helper function to print contents of an array.
-     *
-     * @param arr Array to be printed.
-     */
-    private static void printArray(int[] arr) {
-        for (int value : arr) {
-            System.out.print(value + " ");
-        }
-        System.out.println();
-    }
 }
