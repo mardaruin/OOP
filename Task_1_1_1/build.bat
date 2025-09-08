@@ -13,13 +13,13 @@ rd /s /q "%BUILD_DIR%"
 md "%BUILD_DIR%"
 
 REM Сборка проектов
-"%JAVA_HOME%"\bin\javac -cp "./lib/*" -d "%BUILD_DIR%" %SRC_DIR%/ru/syspro/Task111.java %TEST_DIR%/ru/syspro/Task111Test.java
+"%JAVA_HOME%"\bin\javac -cp "./lib/*" -d "%BUILD_DIR%" %SRC_DIR%/ru/syspro/*.java %TEST_DIR%/ru/syspro/*.java
 
 REM Генерация документаций Javadocs
 "%JAVA_HOME%"\bin\javadoc -sourcepath "%SRC_DIR%" -subpackages ru -d "%DOC_DIR%"
 
 REM Создание архива .jar
-"%JAVA_HOME%"\bin\jar cvfe "%JAR_NAME%" -C "%BUILD_DIR%" .
+"%JAVA_HOME%"\bin\jar cvfe "%JAR_NAME%" ru.syspro.Main -C "%BUILD_DIR%" .
 
 REM Запуск приложения непосредственно через созданный jar-файл
 java -jar "%JAR_NAME%"

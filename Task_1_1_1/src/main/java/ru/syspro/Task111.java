@@ -65,11 +65,7 @@ public class Task111 {
         arr[j] = temp;
     }
 
-    /**
-     * Entry point for running the program directly from the command-line.
-     *
-     * @param args Command-line arguments (not used here).
-     */
+
     public static void main(String[] args) {
         // Example usage
         int[] exampleArray = {12, 11, 13, 5, 6, 7}; // Unsorted array
