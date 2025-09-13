@@ -1,6 +1,7 @@
 package ru.syspro;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
@@ -25,11 +26,11 @@ class PlayerTest {
 
     @Test
     void testBustedCondition() {
-        Player player = new HumanPlayer(null);
         Hand hand = new Hand();
         hand.addCard(new Card(Suit.HEARTS, Rank.KING));
         hand.addCard(new Card(Suit.SPADES, Rank.TEN));
         hand.addCard(new Card(Suit.DIAMONDS, Rank.TEN));
+        Player player = new HumanPlayer(null);
         player.setHand(hand);
         assertTrue(player.busted(), "Bust detection failed");
     }

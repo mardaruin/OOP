@@ -13,6 +13,10 @@ public class BlackJackGame {
     private Deck deck;
     private Scanner scanner;
 
+    /**
+     * Method that creates initial deck and players.
+     *
+     */
     public BlackJackGame() {
         scanner = new Scanner(System.in);
         dealer = new Dealer();
@@ -20,6 +24,10 @@ public class BlackJackGame {
         deck = new Deck();
     }
 
+    /**
+     * The main method that manages the game.
+     *
+     */
     public void play() {
         System.out.printf("Добро пожаловать в Блэкджек!\n");
         int playerWin = 0;
@@ -53,7 +61,7 @@ public class BlackJackGame {
     private void checkForBlackjacks() {
         if (player.hasBlackjack()) {
             System.out.println("У вас блэкджек! Вы победили.");
-        } else if (dealer.hasBlackjack()){
+        } else if (dealer.hasBlackjack()) {
             System.out.println("У дилера блэкджек! Вы проиграли.");
         }
     }
@@ -61,16 +69,20 @@ public class BlackJackGame {
     private void determineWinner(int dealerWin, int playerWin) {
         if (player.busted()) {
             dealerWin += 1;
-            System.out.printf("Вы перебрали! Проигрыш.\nСчёт " + playerWin + ":" + dealerWin);
+            System.out.printf("Вы перебрали! Проигрыш.\nСчёт "
+                    + playerWin + ":" + dealerWin);
         } else if (dealer.busted()) {
             playerWin += 1;
-            System.out.printf("Дилер перебрал! Победа! \nСчёт " + playerWin + ":" + dealerWin);
+            System.out.printf("Дилер перебрал! Победа! \nСчёт "
+                    + playerWin + ":" + dealerWin);
         } else if (player.getScore() < dealer.getScore()) {
             dealerWin += 1;
-            System.out.printf("Вы набрали меньше дилера! Проигрыш.\nСчёт " + playerWin + ":" + dealerWin);
+            System.out.printf("Вы набрали меньше дилера! Проигрыш.\nСчёт "
+                    + playerWin + ":" + dealerWin);
         } else if (player.getScore() > dealer.getScore()) {
             playerWin += 1;
-            System.out.printf("Вы набрали больше дилера! Победа!\nСчёт " + playerWin + ":" + dealerWin);
+            System.out.printf("Вы набрали больше дилера! Победа!\nСчёт "
+                    + playerWin + ":" + dealerWin);
         } else {
             System.out.printf("Ничья! Счёт ");
         }

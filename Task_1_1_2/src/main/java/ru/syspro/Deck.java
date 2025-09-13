@@ -31,8 +31,8 @@ public class Deck {
 
     private void createDeck() {
         cards = new ArrayList<>();
-        for (Suit suit: Suit.values()) {
-            for (Rank rank: Rank.values()) {
+        for (Suit suit : Suit.values()) {
+            for (Rank rank : Rank.values()) {
                 cards.add(new Card(suit, rank));
             }
         }
@@ -42,6 +42,11 @@ public class Deck {
         Collections.shuffle(cards);
     }
 
+    /**
+     * Method that draws a top card from deck.
+     *
+     * @return
+     */
     public Card drawCard() {
         if (!cards.isEmpty()) {
             return cards.remove(0);

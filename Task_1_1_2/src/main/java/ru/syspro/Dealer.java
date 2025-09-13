@@ -12,7 +12,8 @@ public class Dealer extends Player {
         while (hand.calculateScore() < 17) {
             Card drawnCard = deck.drawCard();
             hand.addCard(drawnCard);
-            System.out.printf("Дилер открывает закрытую карту %s (%d)\n", drawnCard, drawnCard.value());
+            System.out.printf("Дилер открывает закрытую карту %s (%d)\n",
+                    drawnCard, drawnCard.value());
         }
     }
 

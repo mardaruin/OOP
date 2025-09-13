@@ -17,7 +17,7 @@ public class HumanPlayer extends Player {
     @Override
     void takeTurn(Deck deck) {
         System.out.printf("Ваш ход\n" + "-------\n");
-        while (true){
+        while (true) {
             System.out.printf("Введите “1”, чтобы взять карту, и “0”, чтобы остановиться...\n");
             int choice = Integer.parseInt(scanner.nextLine().trim());
             if (choice == 1) {

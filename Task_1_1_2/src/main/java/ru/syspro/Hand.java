@@ -23,10 +23,15 @@ public class Hand {
         return cards.size() == 2 && calculateScore() == 21;
     }
 
+    /**
+     * Method that counts score in hand.
+     *
+     * @return
+     */
     public int calculateScore() {
         int score = 0;
         int countAces = 0;
-        for (Card card: cards) {
+        for (Card card : cards) {
             score += card.value();
             if (card.getRank() == Rank.ACE) {
                 countAces += 1;
