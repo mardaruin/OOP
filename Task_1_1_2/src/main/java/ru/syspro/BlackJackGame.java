@@ -96,9 +96,11 @@ public class BlackJackGame {
     private void printCurrentStatus(boolean showAllDealerCards) {
         System.out.println("Ваши карты: [" + player.getHand() + "] => " + player.getScore());
         if (showAllDealerCards) {
-            System.out.println("Карточки дилера: [" + dealer.getHand() + "] => " + dealer.getScore());
+            System.out.println("Карточки дилера: [" + dealer.getHand() +
+                    "] => " + dealer.getScore());
         } else {
-            System.out.println("Карточки дилера: [" + dealer.getHand().getCard().get(0).toString() + ", <закрытая карта>]");
+            System.out.println("Карточки дилера: [" +
+                    dealer.getHand().getCard().get(0).toString() + ", <закрытая карта>]");
         }
     }
 }

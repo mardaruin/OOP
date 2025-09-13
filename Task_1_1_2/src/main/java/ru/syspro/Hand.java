@@ -26,7 +26,7 @@ public class Hand {
     /**
      * Method that counts score in hand.
      *
-     * @return
+     * @return score in hand.
      */
     public int calculateScore() {
         int score = 0;

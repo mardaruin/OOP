@@ -45,7 +45,7 @@ public class Deck {
     /**
      * Method that draws a top card from deck.
      *
-     * @return
+     * @return deck without a top[ card.
      */
     public Card drawCard() {
         if (!cards.isEmpty()) {
