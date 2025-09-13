@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ee1eb9ab-9836-47d8-a5bc-2d757fed4db6" name="Changes" comment="Arrays.toString added" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="OOP" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;mardaruin&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/mardaruin/OOP.git&quot;,
+    &quot;accountId&quot;: &quot;c784db21-b1c9-41c8-ba89-2add6b7513b7&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="32JsUnOpOMdQrz2HdN4eHQoe79F" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Gradle.OOP [jacocoTestReport].executor": "Coverage",
+    "Gradle.Task112.executor": "Run",
+    "Gradle.Task_1_1_1Test.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Task__1__1__1",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/projects/java/OOP/OOP",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.BlackJackGame">
+    <configuration name="BlackJackGame" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../../../Program Files/Java/jdk-21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="OOP [jacocoTestReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jacocoTestReport" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Task112" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Task_1_1_2" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.syspro.Task_1_1_1Test&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.BlackJackGame" />
+      <item itemvalue="Gradle.OOP [jacocoTestReport]" />
+      <item itemvalue="Gradle.Task112" />
+      <item itemvalue="Gradle." />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Task112" />
+        <item itemvalue="Gradle.OOP [jacocoTestReport]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee1eb9ab-9836-47d8-a5bc-2d757fed4db6" name="Changes" comment="" />
+      <created>1757150029326</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1757150029326</updated>
+    </task>
+    <task id="LOCAL-00001" summary="build.gradle added">
+      <option name="closed" value="true" />
+      <created>1757150613128</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1757150613128</updated>
+    </task>
+    <task id="LOCAL-00002" summary="task done">
+      <option name="closed" value="true" />
+      <created>1757237843719</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1757237843719</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Task_1_1_1">
+      <option name="closed" value="true" />
+      <created>1757246580897</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1757246580897</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Task_1_1_1">
+      <option name="closed" value="true" />
+      <created>1757246863894</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1757246863894</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Task_1_1_1">
+      <option name="closed" value="true" />
+      <created>1757247136358</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1757247136358</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Task_1_1_1 deleted old files">
+      <option name="closed" value="true" />
+      <created>1757247639796</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1757247639796</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Task_1_1_1 deleted lib">
+      <option name="closed" value="true" />
+      <created>1757247744710</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1757247744710</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Task_1_1_1 deleted extra files">
+      <option name="closed" value="true" />
+      <created>1757247891139</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1757247891144</updated>
+    </task>
+    <task id="LOCAL-00009" summary="review fixed">
+      <option name="closed" value="true" />
+      <created>1757333092450</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1757333092450</updated>
+    </task>
+    <task id="LOCAL-00010" summary="review fixed">
+      <option name="closed" value="true" />
+      <created>1757333894055</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1757333894055</updated>
+    </task>
+    <task id="LOCAL-00011" summary="review fixed">
+      <option name="closed" value="true" />
+      <created>1757334221186</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1757334221186</updated>
+    </task>
+    <task id="LOCAL-00012" summary="review fixed">
+      <option name="closed" value="true" />
+      <created>1757334424548</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1757334424548</updated>
+    </task>
+    <task id="LOCAL-00013" summary="lib deleted">
+      <option name="closed" value="true" />
+      <created>1757334666359</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1757334666359</updated>
+    </task>
+    <task id="LOCAL-00014" summary=".idea deleted">
+      <option name="closed" value="true" />
+      <created>1757334831905</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1757334831905</updated>
+    </task>
+    <task id="LOCAL-00015" summary=".idea deleted">
+      <option name="closed" value="true" />
+      <created>1757334840417</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1757334840417</updated>
+    </task>
+    <task id="LOCAL-00016" summary=".idea deleted">
+      <option name="closed" value="true" />
+      <created>1757334879185</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1757334879185</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Arrays.toString added">
+      <option name="closed" value="true" />
+      <created>1757338482287</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1757338482287</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Arrays.toString added">
+      <option name="closed" value="true" />
+      <created>1757338599967</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1757338599967</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.bat" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="build.gradle added" />
+    <MESSAGE value="task done" />
+    <MESSAGE value="Task_1_1_1" />
+    <MESSAGE value="Task_1_1_1 deleted old files" />
+    <MESSAGE value="Task_1_1_1 deleted lib" />
+    <MESSAGE value="Task_1_1_1 deleted extra files" />
+    <MESSAGE value="review fixed" />
+    <MESSAGE value="lib deleted" />
+    <MESSAGE value=".idea deleted" />
+    <MESSAGE value="Arrays.toString added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arrays.toString added" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Task_1_1_2/src/main/java/ru/syspro/Hand.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/OOP$Task_1_1_1Test.ic" NAME="Task_1_1_1Test Coverage Results" MODIFIED="1757237506973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/OOP$OOP__jacocoTestReport_.ic" NAME="OOP [jacocoTestReport] Coverage Results" MODIFIED="1757237314893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+  </component>
+</project>
