@@ -17,6 +17,18 @@ public class Deck {
         shuffle();
     }
 
+    public List<Card> getCardsCopy() {
+        return new ArrayList<>(cards);
+    }
+
+    public int size() {
+        return cards.size();
+    }
+
+    public Card peekTopCard() {
+        return cards.get(0);
+    }
+
     private void createDeck() {
         cards = new ArrayList<>();
         for (Suit suit: Suit.values()) {
@@ -26,7 +38,7 @@ public class Deck {
         }
     }
 
-    private void shuffle() {
+    public void shuffle() {
         Collections.shuffle(cards);
     }
 
