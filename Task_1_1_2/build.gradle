@@ -14,7 +14,6 @@ jacocoTestReport {
     reports {
         xml.required = true
     }
-    finalizedBy(jacocoTestReport)
 }
 
 
