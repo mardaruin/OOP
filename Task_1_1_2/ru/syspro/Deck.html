@@ -180,10 +180,13 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="drawCard()">
 <h3>drawCard</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Card.html" title="class in ru.syspro">Card</a></span>&nbsp;<span class="element-name">drawCard</span>()</div>
-<div class="block">Method that draws a top card from deck.</div>
+<div class="block">Method that draws a top card from deck.
+ Otherwise, throws an <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link"><code>IllegalStateException</code></a> indicating that the deck is empty.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>deck without a top[ card.</dd>
+<dd>top deck card.</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link">IllegalStateException</a></code> - if there are no more cards left in the deck</dd>
 </dl>
 </section>
 </li>
