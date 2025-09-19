@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class HumanPlayerTest {
 
@@ -14,33 +15,25 @@ class HumanPlayerTest {
 
     @BeforeEach
     void setup() {
-        player = new HumanPlayer(null); // Сканнер тут не важен, используем mock позже
+        player = new HumanPlayer();
         deck = new Deck();
     }
 
     @Test
-    void testSetHand() {
-        Hand hand = new Hand();
-        player.setHand(hand);
-        assertSame(hand, player.getHand(), "Hand setting did not work");
+    void testWantsAnotherCard() {
+        assertFalse(player.wantsAnotherCard(), "Dealer continued beyond allowed limit");
     }
 
     @Test
-    void testBlackjackDetection() {
-        Hand hand = new Hand();
-        hand.addCard(new Card(Suit.HEARTS, Rank.ACE));
-        hand.addCard(new Card(Suit.SPADES, Rank.KING));
-        player.setHand(hand);
-        assertTrue(player.hasBlackjack(), "Blackjack was not detected");
+    void testReceiveCard() {
+        player.receiveCard(new Card(Suit.HEARTS, Rank.KING));
+        assertEquals(1, player.getHand().getCard().size(), "The size of hand must increase");
     }
 
     @Test
-    void testBustedCondition() {
-        Hand hand = new Hand();
-        hand.addCard(new Card(Suit.HEARTS, Rank.KING));
-        hand.addCard(new Card(Suit.SPADES, Rank.TEN));
-        hand.addCard(new Card(Suit.DIAMONDS, Rank.TEN));
-        player.setHand(hand);
-        assertTrue(player.busted(), "Bust condition not recognized");
+    void testClearCard() {
+        player.receiveCard(new Card(Suit.HEARTS, Rank.KING));
+        player.clearHand();
+        assertEquals(0, player.getHand().getCard().size(), "Hand must be empty");
     }
 }

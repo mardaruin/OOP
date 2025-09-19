@@ -20,12 +20,12 @@ public class BlackJackGame {
     public BlackJackGame() {
         scanner = new Scanner(System.in);
         dealer = new Dealer();
-        player = new HumanPlayer(scanner);
+        player = new HumanPlayer();
         deck = new Deck();
     }
 
     /**
-     * The main method that manages the game.
+     * Starts the game.
      *
      */
     public void play() {
@@ -37,9 +37,9 @@ public class BlackJackGame {
             dealInitialCards();
             checkForBlackjacks();
             if (!player.hasBlackjack() && !dealer.hasBlackjack()) {
-                player.takeTurn(deck);
+                handlePlayerTurn();
                 if (!player.busted()) {
-                    dealer.takeTurn(deck);
+                    handleDealerTurn();
                 }
             }
             determineWinner(dealerWin, playerWin);
@@ -47,17 +47,32 @@ public class BlackJackGame {
         scanner.close();
     }
 
+    /**
+     * Resets dealer and player's hands before the game.
+     *
+     */
+    private  void resetHands() {
+        player.clearHand();
+        dealer.clearHand();
+    }
+
+    /**
+     * Deals out the initial cards.
+     *
+     */
     private void dealInitialCards() {
         System.out.println("Дилер раздал карты");
-        player.setHand(new Hand());
-        dealer.setHand(new Hand());
-        player.getHand().addCard(deck.drawCard());
-        player.getHand().addCard(deck.drawCard());
-        dealer.getHand().addCard(deck.drawCard());
-        dealer.getHand().addCard(deck.drawCard());
+        player.receiveCard(deck.drawCard());
+        player.receiveCard(deck.drawCard());
+        dealer.receiveCard(deck.drawCard());
+        dealer.receiveCard(deck.drawCard());
         printCurrentStatus(false);
     }
 
+    /**
+     * Checks for BlackJacks.
+     *
+     */
     private void checkForBlackjacks() {
         if (player.hasBlackjack()) {
             System.out.println("У вас блэкджек! Вы победили.");
@@ -66,6 +81,50 @@ public class BlackJackGame {
         }
     }
 
+    /**
+     * Processes the player's move.
+     *
+     */
+    private void handlePlayerTurn() {
+        System.out.printf("Ваш ход\n" + "-------\n");
+        while (true) {
+            System.out.printf("Введите “1”, чтобы взять карту, и “0”, чтобы остановиться...\n");
+            int choice = Integer.parseInt(scanner.nextLine().trim());
+            if (choice == 1) {
+                Card drawnCard = deck.drawCard();
+                player.getHand().addCard(drawnCard);
+                System.out.printf("Вы открыли карту %s (%d)\n", drawnCard, drawnCard.value());
+                printCurrentStatus(false);
+                if (player.busted()) {
+                    break;
+                }
+            } else {
+                break;
+            }
+        }
+    }
+
+    /**
+     * Processes the dealer's move.
+     *
+     */
+    private void handleDealerTurn() {
+        System.out.printf("Ход дилера\n" + "-------\n");
+        while (dealer.wantsAnotherCard()) {
+            Card drawnCard = deck.drawCard();
+            dealer.getHand().addCard(drawnCard);
+            System.out.printf("Дилер открывает закрытую карту %s (%d)\n",
+                    drawnCard, drawnCard.value());
+            printCurrentStatus(true);
+        }
+    }
+
+    /**
+     * Determines the winner of the round.
+     *
+     * @param dealerWin amount of dealer wins before.
+     * @param playerWin amount of player wins before.
+     */
     private void determineWinner(int dealerWin, int playerWin) {
         if (player.busted()) {
             dealerWin += 1;
@@ -93,6 +152,12 @@ public class BlackJackGame {
         }
     }
 
+    /**
+     * Prints current status of the game.
+     *
+     * @param showAllDealerCards True when needs to print
+     *                           second dealer's card, false otherwise
+     */
     private void printCurrentStatus(boolean showAllDealerCards) {
         System.out.println("Ваши карты: [" + player.getHand() + "] => " + player.getScore());
         if (showAllDealerCards) {

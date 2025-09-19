@@ -44,8 +44,10 @@ public class Deck {
 
     /**
      * Method that draws a top card from deck.
+     * Otherwise, throws an {@link IllegalStateException} indicating that the deck is empty.
      *
-     * @return deck without a top[ card.
+     * @return top deck card.
+     * @throws IllegalStateException if there are no more cards left in the deck
      */
     public Card drawCard() {
         if (!cards.isEmpty()) {

@@ -5,17 +5,25 @@ package ru.syspro;
  *
  */
 
-abstract class Player {
+public abstract class Player {
     protected Hand hand;
 
-    abstract void takeTurn(Deck deck);
+    public Player() {
+        this.hand = new Hand();
+    }
+
+    public abstract boolean wantsAnotherCard();
 
     public Hand getHand() {
         return hand;
     }
 
-    public void setHand(Hand hand) {
-        this.hand = hand;
+    public void receiveCard(Card card) {
+        hand.addCard(card);
+    }
+
+    public void clearHand() {
+        hand = new Hand();
     }
 
     public boolean hasBlackjack() {

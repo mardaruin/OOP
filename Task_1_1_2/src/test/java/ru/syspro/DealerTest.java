@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class DealerTest {
 
@@ -15,22 +16,32 @@ class DealerTest {
     void setup() {
         dealer = new Dealer();
         deck = new Deck();
-        dealer.setHand(new Hand());
     }
 
     @Test
-    void testTakeTurnBelow17() {
-        dealer.getHand().addCard(new Card(Suit.HEARTS, Rank.SEVEN));
+    void testWantsAnotherCardWhenLess17() {
+        dealer.getHand().addCard(new Card(Suit.HEARTS, Rank.SIX));
         dealer.getHand().addCard(new Card(Suit.SPADES, Rank.TEN));
-        dealer.takeTurn(deck);
-        assertEquals(17, dealer.getScore(), "Dealer stopped below required limit");
+        assertTrue(dealer.wantsAnotherCard(), "Dealer stopped below required limit");
     }
 
     @Test
-    void testTakeTurnAbove17() {
-        dealer.getHand().addCard(new Card(Suit.HEARTS, Rank.KING));
+    void testWantsAnotherCardOver17() {
+        dealer.getHand().addCard(new Card(Suit.HEARTS, Rank.NINE));
         dealer.getHand().addCard(new Card(Suit.SPADES, Rank.NINE));
-        dealer.takeTurn(deck);
-        assertTrue(dealer.getScore() >= 17, "Dealer continued beyond allowed limit");
+        assertFalse(dealer.wantsAnotherCard(), "Dealer continued beyond allowed limit");
+    }
+
+    @Test
+    void testReceiveCard() {
+        dealer.receiveCard(new Card(Suit.HEARTS, Rank.KING));
+        assertEquals(1, dealer.getHand().getCard().size(), "The size of hand must increase");
+    }
+    
+    @Test
+    void testClearCard() {
+        dealer.receiveCard(new Card(Suit.HEARTS, Rank.KING));
+        dealer.clearHand();
+        assertEquals(0, dealer.getHand().getCard().size(), "Hand must be empty");
     }
 }
