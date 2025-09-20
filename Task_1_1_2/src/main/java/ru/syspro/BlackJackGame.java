@@ -8,10 +8,13 @@ import java.util.Scanner;
  */
 
 public class BlackJackGame {
-    private Dealer dealer;
-    private HumanPlayer player;
-    private Deck deck;
-    private Scanner scanner;
+    public Dealer dealer;
+    public HumanPlayer player;
+    public Deck deck;
+    public Scanner scanner;
+
+    public int playerWin = 0;
+    public int dealerWin = 0;
 
     /**
      * Method that creates initial deck and players.
@@ -30,10 +33,9 @@ public class BlackJackGame {
      */
     public void play() {
         System.out.printf("Добро пожаловать в Блэкджек!\n");
-        int playerWin = 0;
-        int dealerWin = 0;
         for (int round = 1; round <= 2; round++) {
             System.out.println("Раунд " + round);
+            resetHands();
             dealInitialCards();
             checkForBlackjacks();
             if (!player.hasBlackjack() && !dealer.hasBlackjack()) {
@@ -51,7 +53,7 @@ public class BlackJackGame {
      * Resets dealer and player's hands before the game.
      *
      */
-    private  void resetHands() {
+    public void resetHands() {
         player.clearHand();
         dealer.clearHand();
     }
@@ -60,7 +62,7 @@ public class BlackJackGame {
      * Deals out the initial cards.
      *
      */
-    private void dealInitialCards() {
+    public void dealInitialCards() {
         System.out.println("Дилер раздал карты");
         player.receiveCard(deck.drawCard());
         player.receiveCard(deck.drawCard());
@@ -73,7 +75,7 @@ public class BlackJackGame {
      * Checks for BlackJacks.
      *
      */
-    private void checkForBlackjacks() {
+    public void checkForBlackjacks() {
         if (player.hasBlackjack()) {
             System.out.println("У вас блэкджек! Вы победили.");
         } else if (dealer.hasBlackjack()) {
@@ -85,7 +87,7 @@ public class BlackJackGame {
      * Processes the player's move.
      *
      */
-    private void handlePlayerTurn() {
+    public void handlePlayerTurn() {
         System.out.printf("Ваш ход\n" + "-------\n");
         while (true) {
             System.out.printf("Введите “1”, чтобы взять карту, и “0”, чтобы остановиться...\n");
@@ -108,7 +110,7 @@ public class BlackJackGame {
      * Processes the dealer's move.
      *
      */
-    private void handleDealerTurn() {
+    public void handleDealerTurn() {
         System.out.printf("Ход дилера\n" + "-------\n");
         while (dealer.wantsAnotherCard()) {
             Card drawnCard = deck.drawCard();
@@ -122,34 +124,38 @@ public class BlackJackGame {
     /**
      * Determines the winner of the round.
      *
-     * @param dealerWin amount of dealer wins before.
-     * @param playerWin amount of player wins before.
+     * @param previousDealerWins amount of dealer wins before.
+     * @param previousPlayerWins amount of player wins before.
      */
-    private void determineWinner(int dealerWin, int playerWin) {
+    public void determineWinner(int previousDealerWins, int previousPlayerWins) {
+        int currentDealerWins = previousDealerWins;
+        int currentPlayerWins = previousPlayerWins;
         if (player.busted()) {
-            dealerWin += 1;
+            currentDealerWins += 1;
             System.out.printf("Вы перебрали! Проигрыш.\nСчёт "
-                    + playerWin + ":" + dealerWin);
+                    + currentPlayerWins + ":" + currentDealerWins);
         } else if (dealer.busted()) {
-            playerWin += 1;
+            currentPlayerWins += 1;
             System.out.printf("Дилер перебрал! Победа! \nСчёт "
-                    + playerWin + ":" + dealerWin);
+                    + currentPlayerWins + ":" + currentDealerWins);
         } else if (player.getScore() < dealer.getScore()) {
-            dealerWin += 1;
+            currentDealerWins += 1;
             System.out.printf("Вы набрали меньше дилера! Проигрыш.\nСчёт "
-                    + playerWin + ":" + dealerWin);
+                    + currentPlayerWins + ":" + currentDealerWins);
         } else if (player.getScore() > dealer.getScore()) {
-            playerWin += 1;
+            currentPlayerWins += 1;
             System.out.printf("Вы набрали больше дилера! Победа!\nСчёт "
-                    + playerWin + ":" + dealerWin);
+                    + currentPlayerWins + ":" + currentDealerWins);
         } else {
             System.out.printf("Ничья! Счёт ");
         }
-        if (playerWin > dealerWin) {
+        if (currentPlayerWins > currentDealerWins) {
             System.out.printf(" в вашу пользу.");
         } else {
             System.out.printf(" в пользу дилера");
         }
+        this.dealerWin = currentDealerWins;
+        this.playerWin = currentPlayerWins;
     }
 
     /**
