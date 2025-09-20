@@ -94,7 +94,7 @@ public class BlackJackGame {
             int choice = Integer.parseInt(scanner.nextLine().trim());
             if (choice == 1) {
                 Card drawnCard = deck.drawCard();
-                player.getHand().addCard(drawnCard);
+                player.receiveCard(drawnCard);
                 System.out.printf("Вы открыли карту %s (%d)\n", drawnCard, drawnCard.value());
                 printCurrentStatus(false);
                 if (player.busted()) {

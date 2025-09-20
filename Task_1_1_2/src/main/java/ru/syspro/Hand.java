@@ -45,7 +45,7 @@ public class Hand {
     }
 
     public List<Card> getCard() {
-        return cards;
+        return new ArrayList<>(this.cards);
     }
 
     @Override
