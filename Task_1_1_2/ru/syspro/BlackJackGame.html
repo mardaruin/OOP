@@ -43,13 +43,13 @@ loadScripts(document, 'script');</script>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
 <ul class="sub-nav-list">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-detail">Method</a></li>
 </ul>
@@ -80,6 +80,36 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code><a href="Dealer.html" title="class in ru.syspro">Dealer</a></code></div>
+<div class="col-second even-row-color"><code><a href="#dealer" class="member-name-link">dealer</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>int</code></div>
+<div class="col-second odd-row-color"><code><a href="#dealerWin" class="member-name-link">dealerWin</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code><a href="Deck.html" title="class in ru.syspro">Deck</a></code></div>
+<div class="col-second even-row-color"><code><a href="#deck" class="member-name-link">deck</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code><a href="HumanPlayer.html" title="class in ru.syspro">HumanPlayer</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#player" class="member-name-link">player</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>int</code></div>
+<div class="col-second even-row-color"><code><a href="#playerWin" class="member-name-link">playerWin</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html" title="class or interface in java.util" class="external-link">Scanner</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#scanner" class="member-name-link">scanner</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor-summary">
@@ -107,9 +137,40 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#play()" class="member-name-link">play</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#checkForBlackjacks()" class="member-name-link">checkForBlackjacks</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks for BlackJacks.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dealInitialCards()" class="member-name-link">dealInitialCards</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Deals out the initial cards.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#determineWinner(int,int)" class="member-name-link">determineWinner</a><wbr>(int&nbsp;previousDealerWins,
+ int&nbsp;previousPlayerWins)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Determines the winner of the round.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleDealerTurn()" class="member-name-link">handleDealerTurn</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Processes the dealer's move.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handlePlayerTurn()" class="member-name-link">handlePlayerTurn</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Processes the player's move.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#play()" class="member-name-link">play</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Starts the game.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resetHands()" class="member-name-link">resetHands</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Resets dealer and player's hands before the game.</div>
 </div>
 </div>
 </div>
@@ -123,6 +184,50 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="details">
 <ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="dealer">
+<h3>dealer</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Dealer.html" title="class in ru.syspro">Dealer</a></span>&nbsp;<span class="element-name">dealer</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="player">
+<h3>player</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="HumanPlayer.html" title="class in ru.syspro">HumanPlayer</a></span>&nbsp;<span class="element-name">player</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="deck">
+<h3>deck</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Deck.html" title="class in ru.syspro">Deck</a></span>&nbsp;<span class="element-name">deck</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="scanner">
+<h3>scanner</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html" title="class or interface in java.util" class="external-link">Scanner</a></span>&nbsp;<span class="element-name">scanner</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="playerWin">
+<h3>playerWin</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">playerWin</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="dealerWin">
+<h3>dealerWin</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">dealerWin</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <li>
 <section class="constructor-details" id="constructor-detail">
@@ -148,6 +253,54 @@ loadScripts(document, 'script');</script>
 <h3>play</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">play</span>()</div>
 <div class="block">Starts the game.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="resetHands()">
+<h3>resetHands</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">resetHands</span>()</div>
+<div class="block">Resets dealer and player's hands before the game.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="dealInitialCards()">
+<h3>dealInitialCards</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dealInitialCards</span>()</div>
+<div class="block">Deals out the initial cards.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="checkForBlackjacks()">
+<h3>checkForBlackjacks</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">checkForBlackjacks</span>()</div>
+<div class="block">Checks for BlackJacks.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handlePlayerTurn()">
+<h3>handlePlayerTurn</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handlePlayerTurn</span>()</div>
+<div class="block">Processes the player's move.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleDealerTurn()">
+<h3>handleDealerTurn</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleDealerTurn</span>()</div>
+<div class="block">Processes the dealer's move.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="determineWinner(int,int)">
+<h3>determineWinner</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">determineWinner</span><wbr><span class="parameters">(int&nbsp;previousDealerWins,
+ int&nbsp;previousPlayerWins)</span></div>
+<div class="block">Determines the winner of the round.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>previousDealerWins</code> - amount of dealer wins before.</dd>
+<dd><code>previousPlayerWins</code> - amount of player wins before.</dd>
+</dl>
 </section>
 </li>
 </ul>

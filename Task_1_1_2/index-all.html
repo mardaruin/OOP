@@ -79,16 +79,32 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="ru/syspro/Card.html#%3Cinit%3E(ru.syspro.Suit,ru.syspro.Rank)" class="member-name-link">Card(Suit, Rank)</a> - Constructor for class ru.syspro.<a href="ru/syspro/Card.html" title="class in ru.syspro">Card</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="ru/syspro/Deck.html#cards" class="member-name-link">cards</a> - Variable in class ru.syspro.<a href="ru/syspro/Deck.html" title="class in ru.syspro">Deck</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="ru/syspro/BlackJackGame.html#checkForBlackjacks()" class="member-name-link">checkForBlackjacks()</a> - Method in class ru.syspro.<a href="ru/syspro/BlackJackGame.html" title="class in ru.syspro">BlackJackGame</a></dt>
+<dd>
+<div class="block">Checks for BlackJacks.</div>
+</dd>
 <dt><a href="ru/syspro/Player.html#clearHand()" class="member-name-link">clearHand()</a> - Method in class ru.syspro.<a href="ru/syspro/Player.html" title="class in ru.syspro">Player</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:D">D</h2>
 <dl class="index">
+<dt><a href="ru/syspro/BlackJackGame.html#dealer" class="member-name-link">dealer</a> - Variable in class ru.syspro.<a href="ru/syspro/BlackJackGame.html" title="class in ru.syspro">BlackJackGame</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="ru/syspro/Dealer.html" class="type-name-link" title="class in ru.syspro">Dealer</a> - Class in <a href="ru/syspro/package-summary.html">ru.syspro</a></dt>
 <dd>
 <div class="block">The heir of the common player class, the dealer.</div>
 </dd>
 <dt><a href="ru/syspro/Dealer.html#%3Cinit%3E()" class="member-name-link">Dealer()</a> - Constructor for class ru.syspro.<a href="ru/syspro/Dealer.html" title="class in ru.syspro">Dealer</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="ru/syspro/BlackJackGame.html#dealerWin" class="member-name-link">dealerWin</a> - Variable in class ru.syspro.<a href="ru/syspro/BlackJackGame.html" title="class in ru.syspro">BlackJackGame</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="ru/syspro/BlackJackGame.html#dealInitialCards()" class="member-name-link">dealInitialCards()</a> - Method in class ru.syspro.<a href="ru/syspro/BlackJackGame.html" title="class in ru.syspro">BlackJackGame</a></dt>
+<dd>
+<div class="block">Deals out the initial cards.</div>
+</dd>
+<dt><a href="ru/syspro/BlackJackGame.html#deck" class="member-name-link">deck</a> - Variable in class ru.syspro.<a href="ru/syspro/BlackJackGame.html" title="class in ru.syspro">BlackJackGame</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="ru/syspro/Deck.html" class="type-name-link" title="class in ru.syspro">Deck</a> - Class in <a href="ru/syspro/package-summary.html">ru.syspro</a></dt>
 <dd>
@@ -96,6 +112,10 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="ru/syspro/Deck.html#%3Cinit%3E()" class="member-name-link">Deck()</a> - Constructor for class ru.syspro.<a href="ru/syspro/Deck.html" title="class in ru.syspro">Deck</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="ru/syspro/BlackJackGame.html#determineWinner(int,int)" class="member-name-link">determineWinner(int, int)</a> - Method in class ru.syspro.<a href="ru/syspro/BlackJackGame.html" title="class in ru.syspro">BlackJackGame</a></dt>
+<dd>
+<div class="block">Determines the winner of the round.</div>
+</dd>
 <dt><a href="ru/syspro/Deck.html#drawCard()" class="member-name-link">drawCard()</a> - Method in class ru.syspro.<a href="ru/syspro/Deck.html" title="class in ru.syspro">Deck</a></dt>
 <dd>
 <div class="block">Method that draws a top card from deck.</div>
@@ -124,6 +144,14 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="ru/syspro/Hand.html#%3Cinit%3E()" class="member-name-link">Hand()</a> - Constructor for class ru.syspro.<a href="ru/syspro/Hand.html" title="class in ru.syspro">Hand</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="ru/syspro/BlackJackGame.html#handleDealerTurn()" class="member-name-link">handleDealerTurn()</a> - Method in class ru.syspro.<a href="ru/syspro/BlackJackGame.html" title="class in ru.syspro">BlackJackGame</a></dt>
+<dd>
+<div class="block">Processes the dealer's move.</div>
+</dd>
+<dt><a href="ru/syspro/BlackJackGame.html#handlePlayerTurn()" class="member-name-link">handlePlayerTurn()</a> - Method in class ru.syspro.<a href="ru/syspro/BlackJackGame.html" title="class in ru.syspro">BlackJackGame</a></dt>
+<dd>
+<div class="block">Processes the player's move.</div>
+</dd>
 <dt><a href="ru/syspro/Player.html#hasBlackjack()" class="member-name-link">hasBlackjack()</a> - Method in class ru.syspro.<a href="ru/syspro/Player.html" title="class in ru.syspro">Player</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="ru/syspro/HumanPlayer.html" class="type-name-link" title="class in ru.syspro">HumanPlayer</a> - Class in <a href="ru/syspro/package-summary.html">ru.syspro</a></dt>
@@ -159,22 +187,32 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Starts the game.</div>
 </dd>
+<dt><a href="ru/syspro/BlackJackGame.html#player" class="member-name-link">player</a> - Variable in class ru.syspro.<a href="ru/syspro/BlackJackGame.html" title="class in ru.syspro">BlackJackGame</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="ru/syspro/Player.html" class="type-name-link" title="class in ru.syspro">Player</a> - Class in <a href="ru/syspro/package-summary.html">ru.syspro</a></dt>
 <dd>
 <div class="block">An abstract player class that serves as the parent for a specific player and dealer.</div>
 </dd>
 <dt><a href="ru/syspro/Player.html#%3Cinit%3E()" class="member-name-link">Player()</a> - Constructor for class ru.syspro.<a href="ru/syspro/Player.html" title="class in ru.syspro">Player</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="ru/syspro/BlackJackGame.html#playerWin" class="member-name-link">playerWin</a> - Variable in class ru.syspro.<a href="ru/syspro/BlackJackGame.html" title="class in ru.syspro">BlackJackGame</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:R">R</h2>
 <dl class="index">
 <dt><a href="ru/syspro/Player.html#receiveCard(ru.syspro.Card)" class="member-name-link">receiveCard(Card)</a> - Method in class ru.syspro.<a href="ru/syspro/Player.html" title="class in ru.syspro">Player</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="ru/syspro/BlackJackGame.html#resetHands()" class="member-name-link">resetHands()</a> - Method in class ru.syspro.<a href="ru/syspro/BlackJackGame.html" title="class in ru.syspro">BlackJackGame</a></dt>
+<dd>
+<div class="block">Resets dealer and player's hands before the game.</div>
+</dd>
 <dt><a href="ru/syspro/package-summary.html">ru.syspro</a> - package ru.syspro</dt>
 <dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:S">S</h2>
 <dl class="index">
+<dt><a href="ru/syspro/BlackJackGame.html#scanner" class="member-name-link">scanner</a> - Variable in class ru.syspro.<a href="ru/syspro/BlackJackGame.html" title="class in ru.syspro">BlackJackGame</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="ru/syspro/Deck.html#shuffle()" class="member-name-link">shuffle()</a> - Method in class ru.syspro.<a href="ru/syspro/Deck.html" title="class in ru.syspro">Deck</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="ru/syspro/Deck.html#size()" class="member-name-link">size()</a> - Method in class ru.syspro.<a href="ru/syspro/Deck.html" title="class in ru.syspro">Deck</a></dt>
