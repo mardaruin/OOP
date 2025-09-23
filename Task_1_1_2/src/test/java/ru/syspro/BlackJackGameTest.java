@@ -13,69 +13,65 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class BlackJackGameTest {
 
     private BlackJackGame game;
-    private Scanner scanner;
 
     @BeforeEach
     void setup() {
-        scanner = new Scanner("");
         game = new BlackJackGame();
     }
 
     @Test
     void testInitialDeal() {
         game.resetHands();
-        game.dealInitialCards();
-        assertEquals(2, game.player.getHand().getCard().size(), "Player must have 2 cards");
-        assertEquals(2, game.dealer.getHand().getCard().size(), "Dealer must have 2 cards");
+        game.setDealInitialCards();
+        assertEquals(2, game.getPlayer().getHand().getCardsCopy().size(), "Player must have 2 cards");
+        assertEquals(2, game.getDealer().getHand().getCardsCopy().size(), "Dealer must have 2 cards");
     }
 
     @Test
     void testCalculateScores() {
         game.resetHands();
 
-        game.player.getHand().addCard(new Card(Suit.HEARTS, Rank.ACE));
-        game.player.getHand().addCard(new Card(Suit.SPADES, Rank.TEN));
-        assertEquals(21, game.player.getScore(), "Score must be 21");
+        game.getPlayer().getHand().addCard(new Card(Card.Suit.HEARTS, Card.Rank.ACE));
+        game.getPlayer().getHand().addCard(new Card(Card.Suit.SPADES, Card.Rank.TEN));
+        assertEquals(21, game.getPlayer().getScore(), "Score must be 21");
 
-        game.dealer.getHand().addCard(new Card(Suit.CLUBS, Rank.EIGHT));
-        game.dealer.getHand().addCard(new Card(Suit.DIAMONDS, Rank.SEVEN));
-        assertEquals(15, game.dealer.getScore(), "Score must be 15");
+        game.getDealer().getHand().addCard(new Card(Card.Suit.CLUBS, Card.Rank.EIGHT));
+        game.getDealer().getHand().addCard(new Card(Card.Suit.DIAMONDS, Card.Rank.SEVEN));
+        assertEquals(15, game.getDealer().getScore(), "Score must be 15");
     }
 
     @Test
     void testHandlePlayerTurn() {
         game.resetHands();
-        game.dealInitialCards();
+        game.setDealInitialCards();
 
-        InputStream inputStream = new ByteArrayInputStream("1".getBytes());
-        System.setIn(inputStream);
-        scanner = new Scanner(System.in);
-        game.scanner = scanner;
+        Scanner scanner = new Scanner("1");
+        game.setScanner(scanner);
 
         game.handlePlayerTurn();
-        assertEquals(3, game.player.getHand().getCard().size(), "Player must ger another card.");
+        assertEquals(3, game.getPlayer().getHand().getCardsCopy().size(), "Player must ger another card.");
     }
 
     @Test
     void testHandleDealerTurn() {
         game.resetHands();
-        game.dealer.getHand().addCard(new Card(Suit.CLUBS, Rank.EIGHT));
-        game.dealer.getHand().addCard(new Card(Suit.DIAMONDS, Rank.SEVEN));
+        game.getDealer().getHand().addCard(new Card(Card.Suit.CLUBS, Card.Rank.EIGHT));
+        game.getDealer().getHand().addCard(new Card(Card.Suit.DIAMONDS, Card.Rank.SEVEN));
 
         game.handleDealerTurn();
-        assertTrue(game.dealer.getHand().getCard().size() > 2, "Dealer must have at least 3 cards.");
+        assertTrue(game.getDealer().getHand().getCardsCopy().size() > 2, "Dealer must have at least 3 cards.");
     }
 
     @Test
     void testPlayerVictory() {
         game.resetHands();
 
-        game.player.getHand().addCard(new Card(Suit.HEARTS, Rank.TEN));
-        game.player.getHand().addCard(new Card(Suit.SPADES, Rank.NINE));
-        game.dealer.getHand().addCard(new Card(Suit.CLUBS, Rank.SEVEN));
-        game.dealer.getHand().addCard(new Card(Suit.DIAMONDS, Rank.FIVE));
+        game.getPlayer().getHand().addCard(new Card(Card.Suit.HEARTS, Card.Rank.TEN));
+        game.getPlayer().getHand().addCard(new Card(Card.Suit.SPADES, Card.Rank.NINE));
+        game.getDealer().getHand().addCard(new Card(Card.Suit.CLUBS, Card.Rank.SEVEN));
+        game.getDealer().getHand().addCard(new Card(Card.Suit.DIAMONDS, Card.Rank.FIVE));
 
-        game.determineWinner(0, 0);
+        game.determineWinner();
         assertEquals(1, game.playerWin, "Player must win");
     }
 
@@ -83,23 +79,23 @@ class BlackJackGameTest {
     void testPlayerBust() {
         game.resetHands();
 
-        game.player.getHand().addCard(new Card(Suit.HEARTS, Rank.TEN));
-        game.player.getHand().addCard(new Card(Suit.SPADES, Rank.NINE));
-        game.player.getHand().addCard(new Card(Suit.CLUBS, Rank.KING));
-        game.dealer.getHand().addCard(new Card(Suit.CLUBS, Rank.SEVEN));
-        game.dealer.getHand().addCard(new Card(Suit.DIAMONDS, Rank.FIVE));
+        game.getPlayer().getHand().addCard(new Card(Card.Suit.HEARTS, Card.Rank.TEN));
+        game.getPlayer().getHand().addCard(new Card(Card.Suit.SPADES, Card.Rank.NINE));
+        game.getPlayer().getHand().addCard(new Card(Card.Suit.CLUBS, Card.Rank.KING));
+        game.getDealer().getHand().addCard(new Card(Card.Suit.CLUBS, Card.Rank.SEVEN));
+        game.getDealer().getHand().addCard(new Card(Card.Suit.DIAMONDS, Card.Rank.FIVE));
 
-        game.determineWinner(0, 0);
+        game.determineWinner();
         assertEquals(1, game.dealerWin, "Player busted scored over 21");
     }
 
     @Test
     void testDealerDrawDecision() {
         game.resetHands();
-        game.dealer.getHand().addCard(new Card(Suit.HEARTS, Rank.TWO));
-        game.dealer.getHand().addCard(new Card(Suit.SPADES, Rank.THREE));
+        game.getDealer().getHand().addCard(new Card(Card.Suit.HEARTS, Card.Rank.TWO));
+        game.getDealer().getHand().addCard(new Card(Card.Suit.SPADES, Card.Rank.THREE));
 
-        boolean shouldTakeCard = game.dealer.wantsAnotherCard();
+        boolean shouldTakeCard = game.getDealer().wantsAnotherCard();
         assertTrue(shouldTakeCard, "Dealer has to take another card");
     }
 
@@ -107,12 +103,12 @@ class BlackJackGameTest {
     void testDrawScenario() {
         game.resetHands();
 
-        game.player.getHand().addCard(new Card(Suit.HEARTS, Rank.TEN));
-        game.player.getHand().addCard(new Card(Suit.SPADES, Rank.NINE));
-        game.dealer.getHand().addCard(new Card(Suit.CLUBS, Rank.TEN));
-        game.dealer.getHand().addCard(new Card(Suit.DIAMONDS, Rank.NINE));
+        game.getPlayer().getHand().addCard(new Card(Card.Suit.HEARTS, Card.Rank.TEN));
+        game.getPlayer().getHand().addCard(new Card(Card.Suit.SPADES, Card.Rank.NINE));
+        game.getDealer().getHand().addCard(new Card(Card.Suit.CLUBS, Card.Rank.TEN));
+        game.getDealer().getHand().addCard(new Card(Card.Suit.DIAMONDS, Card.Rank.NINE));
 
-        game.determineWinner(0, 0);
+        game.determineWinner();
         assertEquals(0, game.playerWin, "The result should be a draw.");
         assertEquals(0, game.dealerWin, "The result should be a draw.");
     }
@@ -120,12 +116,12 @@ class BlackJackGameTest {
     @Test
     void testDetermineWinner() {
         game.resetHands();
-        game.player.getHand().addCard(new Card(Suit.HEARTS, Rank.TEN));
-        game.player.getHand().addCard(new Card(Suit.SPADES, Rank.NINE));
-        game.dealer.getHand().addCard(new Card(Suit.CLUBS, Rank.SEVEN));
-        game.dealer.getHand().addCard(new Card(Suit.DIAMONDS, Rank.FIVE));
+        game.getPlayer().getHand().addCard(new Card(Card.Suit.HEARTS, Card.Rank.TEN));
+        game.getPlayer().getHand().addCard(new Card(Card.Suit.SPADES, Card.Rank.NINE));
+        game.getDealer().getHand().addCard(new Card(Card.Suit.CLUBS, Card.Rank.SEVEN));
+        game.getDealer().getHand().addCard(new Card(Card.Suit.DIAMONDS, Card.Rank.FIVE));
 
-        game.determineWinner(0, 0);
+        game.determineWinner();
         assertEquals(1, game.playerWin, "Player must win once");
     }
 
@@ -133,8 +129,8 @@ class BlackJackGameTest {
     void testResetHands() {
         game.resetHands();
 
-        assertEquals(0, game.player.getHand().getCard().size(), "Player must have 0 cards");
-        assertEquals(0, game.dealer.getHand().getCard().size(), "Dealer must have 0 cards");
+        assertEquals(0, game.getPlayer().getHand().getCardsCopy().size(), "Player must have 0 cards");
+        assertEquals(0, game.getDealer().getHand().getCardsCopy().size(), "Dealer must have 0 cards");
     }
 
 }

@@ -8,13 +8,25 @@ import java.util.Scanner;
  */
 
 public class BlackJackGame {
-    public Dealer dealer;
-    public HumanPlayer player;
-    public Deck deck;
-    public Scanner scanner;
+    private Dealer dealer;
+    private HumanPlayer player;
+    private Deck deck;
+    private Scanner scanner;
 
     public int playerWin = 0;
     public int dealerWin = 0;
+
+    protected Dealer getDealer() {
+        return dealer;
+    }
+
+    protected HumanPlayer getPlayer() {
+        return player;
+    }
+
+    protected void setScanner(Scanner newScanner) {
+        scanner = newScanner;
+    }
 
     /**
      * Method that creates initial deck and players.
@@ -28,12 +40,27 @@ public class BlackJackGame {
     }
 
     /**
+     * Constructor accepting predefined deck and scanner.
+     * For testing purposes.
+     * 
+     */
+    public BlackJackGame(Scanner customScanner, Deck customDeck) {
+        scanner = customScanner;
+        dealer = new Dealer();
+        player = new HumanPlayer();
+        deck = customDeck;
+    }
+
+    /**
      * Starts the game.
      *
      */
     public void play() {
         System.out.printf("Добро пожаловать в Блэкджек!\n");
-        for (int round = 1; round <= 2; round++) {
+        boolean continuePlaying = true;
+        int round = 0;
+        while (continuePlaying) {
+            round += 1;
             System.out.println("Раунд " + round);
             resetHands();
             dealInitialCards();
@@ -44,7 +71,11 @@ public class BlackJackGame {
                     handleDealerTurn();
                 }
             }
-            determineWinner(dealerWin, playerWin);
+            determineWinner();
+
+            System.out.print("Хотите сыграть ещё один раунд? (Да/Нет): ");
+            String answer = scanner.nextLine().trim().toLowerCase();
+            continuePlaying = answer.equalsIgnoreCase("да");
         }
         scanner.close();
     }
@@ -62,13 +93,17 @@ public class BlackJackGame {
      * Deals out the initial cards.
      *
      */
-    public void dealInitialCards() {
+    private void dealInitialCards() {
         System.out.println("Дилер раздал карты");
         player.receiveCard(deck.drawCard());
         player.receiveCard(deck.drawCard());
         dealer.receiveCard(deck.drawCard());
         dealer.receiveCard(deck.drawCard());
         printCurrentStatus(false);
+    }
+
+    protected void setDealInitialCards() {
+        dealInitialCards();
     }
 
     /**
@@ -124,38 +159,34 @@ public class BlackJackGame {
     /**
      * Determines the winner of the round.
      *
-     * @param previousDealerWins amount of dealer wins before.
-     * @param previousPlayerWins amount of player wins before.
      */
-    public void determineWinner(int previousDealerWins, int previousPlayerWins) {
-        int currentDealerWins = previousDealerWins;
-        int currentPlayerWins = previousPlayerWins;
+    public void determineWinner() {
         if (player.busted()) {
-            currentDealerWins += 1;
+            dealerWin += 1;
             System.out.printf("Вы перебрали! Проигрыш.\nСчёт "
-                    + currentPlayerWins + ":" + currentDealerWins);
+                    + playerWin + ":" + dealerWin);
         } else if (dealer.busted()) {
-            currentPlayerWins += 1;
+            playerWin += 1;
             System.out.printf("Дилер перебрал! Победа! \nСчёт "
-                    + currentPlayerWins + ":" + currentDealerWins);
+                    + playerWin + ":" + dealerWin);
         } else if (player.getScore() < dealer.getScore()) {
-            currentDealerWins += 1;
+            dealerWin += 1;
             System.out.printf("Вы набрали меньше дилера! Проигрыш.\nСчёт "
-                    + currentPlayerWins + ":" + currentDealerWins);
+                    + playerWin + ":" + dealerWin);
         } else if (player.getScore() > dealer.getScore()) {
-            currentPlayerWins += 1;
+            playerWin += 1;
             System.out.printf("Вы набрали больше дилера! Победа!\nСчёт "
-                    + currentPlayerWins + ":" + currentDealerWins);
+                    + playerWin + ":" + dealerWin);
         } else {
             System.out.printf("Ничья! Счёт ");
         }
-        if (currentPlayerWins > currentDealerWins) {
+        if (playerWin > dealerWin) {
             System.out.printf(" в вашу пользу.");
         } else {
             System.out.printf(" в пользу дилера");
         }
-        this.dealerWin = currentDealerWins;
-        this.playerWin = currentPlayerWins;
+        this.dealerWin = dealerWin;
+        this.playerWin = playerWin;
     }
 
     /**
@@ -170,8 +201,9 @@ public class BlackJackGame {
             System.out.println("Карточки дилера: [" + dealer.getHand() +
                     "] => " + dealer.getScore());
         } else {
-            System.out.println("Карточки дилера: [" +
-                    dealer.getHand().getCard().get(0).toString() + ", <закрытая карта>]");
+            Card firstDealerCard = dealer.getHand().getCardsCopy().get(0);
+            firstDealerCard.reveal();
+            System.out.println("Карточки дилера: [" + firstDealerCard + ", <закрытая карта>]");
         }
     }
 }

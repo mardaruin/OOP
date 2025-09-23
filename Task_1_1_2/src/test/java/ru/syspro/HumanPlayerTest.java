@@ -26,14 +26,14 @@ class HumanPlayerTest {
 
     @Test
     void testReceiveCard() {
-        player.receiveCard(new Card(Suit.HEARTS, Rank.KING));
-        assertEquals(1, player.getHand().getCard().size(), "The size of hand must increase");
+        player.receiveCard(new Card(Card.Suit.HEARTS, Card.Rank.KING));
+        assertEquals(1, player.getHand().getCardsCopy().size(), "The size of hand must increase");
     }
 
     @Test
     void testClearCard() {
-        player.receiveCard(new Card(Suit.HEARTS, Rank.KING));
+        player.receiveCard(new Card(Card.Suit.HEARTS, Card.Rank.KING));
         player.clearHand();
-        assertEquals(0, player.getHand().getCard().size(), "Hand must be empty");
+        assertEquals(0, player.getHand().getCardsCopy().size(), "Hand must be empty");
     }
 }

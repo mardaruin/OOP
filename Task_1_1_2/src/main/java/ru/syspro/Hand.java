@@ -2,6 +2,7 @@ package ru.syspro;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * This class describes cards in players hand.
@@ -33,7 +34,7 @@ public class Hand {
         int countAces = 0;
         for (Card card : cards) {
             score += card.value();
-            if (card.getRank() == Rank.ACE) {
+            if (card.getRank() == Card.Rank.ACE) {
                 countAces += 1;
             }
         }
@@ -44,12 +45,18 @@ public class Hand {
         return score;
     }
 
-    public List<Card> getCard() {
+    public List<Card> getCardsCopy() {
         return new ArrayList<>(this.cards);
     }
 
+    /**
+     * Returns an unmodifiable copy of the list of cards in the hand.
+     * It prevents external modification of the original list by returning a defensive copy.
+     *
+     * @return An immutable list containing all cards in the hand.
+     */
     @Override
     public String toString() {
-        return cards.toString();
+        return cards.stream().map(Card::toString).collect(Collectors.joining(", "));
     }
 }
