@@ -45,16 +45,17 @@ public class Hand {
         return score;
     }
 
-    public List<Card> getCardsCopy() {
-        return new ArrayList<>(this.cards);
-    }
-
     /**
      * Returns an unmodifiable copy of the list of cards in the hand.
      * It prevents external modification of the original list by returning a defensive copy.
      *
      * @return An immutable list containing all cards in the hand.
      */
+    public List<Card> getCardsCopy() {
+        return new ArrayList<>(this.cards);
+    }
+
+
     @Override
     public String toString() {
         return cards.stream().map(Card::toString).collect(Collectors.joining(", "));

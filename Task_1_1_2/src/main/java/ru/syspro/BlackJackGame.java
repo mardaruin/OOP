@@ -187,8 +187,6 @@ public class BlackJackGame {
         } else {
             System.out.printf(" в пользу дилера");
         }
-        this.dealerWin = dealerWin;
-        this.playerWin = playerWin;
     }
 
     /**
