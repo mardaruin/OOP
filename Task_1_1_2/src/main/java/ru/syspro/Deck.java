@@ -17,6 +17,10 @@ public class Deck {
         shuffle();
     }
 
+    public Deck(List<Card> newDeck) {
+        cards = newDeck;
+    }
+
     public List<Card> getCardsCopy() {
         return new ArrayList<>(cards);
     }
