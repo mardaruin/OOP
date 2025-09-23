@@ -88,8 +88,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(ru.syspro.Suit,ru.syspro.Rank)" class="member-name-link">Card</a><wbr>(ru.syspro.Suit&nbsp;suit,
- ru.syspro.Rank&nbsp;rank)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(ru.syspro.Card.Suit,ru.syspro.Card.Rank)" class="member-name-link">Card</a><wbr>(ru.syspro.Card.Suit&nbsp;suit,
+ ru.syspro.Card.Rank&nbsp;rank)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -105,15 +105,18 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>ru.syspro.Rank</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>ru.syspro.Card.Rank</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRank()" class="member-name-link">getRank</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reveal()" class="member-name-link">reveal</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#value()" class="member-name-link">value</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#value()" class="member-name-link">value</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -132,10 +135,10 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(ru.syspro.Suit,ru.syspro.Rank)">
+<section class="detail" id="&lt;init&gt;(ru.syspro.Card.Suit,ru.syspro.Card.Rank)">
 <h3>Card</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Card</span><wbr><span class="parameters">(ru.syspro.Suit&nbsp;suit,
- ru.syspro.Rank&nbsp;rank)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Card</span><wbr><span class="parameters">(ru.syspro.Card.Suit&nbsp;suit,
+ ru.syspro.Card.Rank&nbsp;rank)</span></div>
 </section>
 </li>
 </ul>
@@ -149,13 +152,19 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getRank()">
 <h3>getRank</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">ru.syspro.Rank</span>&nbsp;<span class="element-name">getRank</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">ru.syspro.Card.Rank</span>&nbsp;<span class="element-name">getRank</span>()</div>
 </section>
 </li>
 <li>
 <section class="detail" id="value()">
 <h3>value</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">value</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="reveal()">
+<h3>reveal</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">reveal</span>()</div>
 </section>
 </li>
 <li>
