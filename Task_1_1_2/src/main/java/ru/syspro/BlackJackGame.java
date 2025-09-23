@@ -56,12 +56,18 @@ public class BlackJackGame {
      *
      */
     public void play() {
-        System.out.printf("Добро пожаловать в Блэкджек!\n");
-        boolean continuePlaying = true;
         int round = 0;
-        while (continuePlaying) {
-            round += 1;
-            System.out.println("Раунд " + round);
+        System.out.printf("Добро пожаловать в Блэкджек!\n");
+        System.out.print("Введите желаемое количество раундов: ");
+        String input = scanner.nextLine().trim();
+        try {
+            round = Integer.parseInt(input);
+            System.out.println("Вы выбрали " + round + " раундов.");
+        } catch (NumberFormatException e) {
+            System.err.println("Ошибка: Вы ввели некорректное число!");
+        }
+        for (int i = 1; i <= round; i++) {
+            System.out.println("Раунд " + i);
             resetHands();
             dealInitialCards();
             checkForBlackjacks();
@@ -72,10 +78,6 @@ public class BlackJackGame {
                 }
             }
             determineWinner();
-
-            System.out.print("Хотите сыграть ещё один раунд? (Да/Нет): ");
-            String answer = scanner.nextLine().trim().toLowerCase();
-            continuePlaying = answer.equalsIgnoreCase("да");
         }
         scanner.close();
     }

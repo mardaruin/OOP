@@ -8,6 +8,13 @@ package ru.syspro;
 public abstract class Player {
     protected Hand hand;
 
+    public int score;
+    private boolean mockScore = false;
+
+    public void setMockScore() {
+        mockScore = true;
+    }
+
     public Player() {
         this.hand = new Hand();
     }
@@ -31,7 +38,7 @@ public abstract class Player {
     }
 
     public int getScore() {
-        return hand.calculateScore();
+        return mockScore ? score : hand.calculateScore();
     }
 
     public boolean busted() {
