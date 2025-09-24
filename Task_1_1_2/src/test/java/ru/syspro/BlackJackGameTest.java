@@ -78,4 +78,33 @@ class BlackJackGameTest {
         assertEquals(0, game.dealerWin);
     }
 
+    @Test
+    void testHandlePlayerTurn_Scenario() {
+        List<Card> fixedDeck = new ArrayList<>();
+        fixedDeck.add(new Card(Card.Suit.HEARTS, Card.Rank.EIGHT));
+        fixedDeck.add(new Card(Card.Suit.CLUBS, Card.Rank.FOUR));
+        fixedDeck.add(new Card(Card.Suit.DIAMONDS, Card.Rank.SIX));
+        fixedDeck.add(new Card(Card.Suit.SPADES, Card.Rank.TWO));
+        fixedDeck.add(new Card(Card.Suit.DIAMONDS, Card.Rank.SEVEN));
+        fixedDeck.add(new Card(Card.Suit.SPADES, Card.Rank.NINE));
+
+        Scanner mockScanner = new Scanner("1\n1\n0");
+
+        game = new BlackJackGame(mockScanner, new Deck(fixedDeck));
+
+        game.resetHands();
+        game.setDealInitialCards();
+
+        game.handlePlayerTurn();
+
+        Hand playerHand = game.getPlayer().getHand();
+        assertEquals(4, playerHand.getCardsCopy().size());
+        assertEquals(28, game.getPlayer().getScore());
+        assertTrue(game.getPlayer().busted());
+
+        game.determineWinner();
+        assertEquals(0, game.playerWin);
+        assertEquals(1, game.dealerWin);
+    }
+
 }
