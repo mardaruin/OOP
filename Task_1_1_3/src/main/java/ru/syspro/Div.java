@@ -1,6 +1,13 @@
 package ru.syspro;
 
-import java.util.*;
+import java.util.Map;
+import java.util.HashMap;
+
+/**
+ * The heir of BinaryOperation class.
+ * Implements logic for binary operation div.
+ *
+ */
 
 public class Div extends BinaryOperation {
 

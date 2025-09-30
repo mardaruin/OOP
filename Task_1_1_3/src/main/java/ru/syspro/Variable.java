@@ -1,6 +1,13 @@
 package ru.syspro;
 
-import java.util.*;
+import java.util.Map;
+import java.util.HashMap;
+
+/**
+ * The heir of Expression class.
+ * Implements variable logic for expressions.
+ *
+ */
 
 public class Variable extends Expression {
     private final String name;
@@ -21,7 +28,10 @@ public class Variable extends Expression {
 
     @Override
     public Expression derivative(String variable) {
-        return variable.equals(name) ? new Number(1) : new Number(0);
+        if (variable.equals(name)) {
+            return new Number(1);
+        }
+        return new Number(0);
     }
 
     @Override

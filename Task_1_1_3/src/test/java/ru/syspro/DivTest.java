@@ -25,6 +25,9 @@ class DivTest {
     @Test
     void testDerivative() {
         Div div = new Div(new Variable("x"), new Variable("y"));
-        assertEquals(new Div(new Sub(new Mul(new Number(1), new Variable("y")), new Mul(new Variable("x"), new Number(0))), new Mul(new Variable("y"), new Variable("y"))), div.derivative("x"));
+        assertEquals(new Div(new Sub(new Mul(new Number(1), new Variable("y")),
+                new Mul(new Variable("x"), new Number(0))), new Mul(new Variable("y"),
+                        new Variable("y"))),
+                div.derivative("x"));
     }
 }

@@ -1,6 +1,13 @@
 package ru.syspro;
 
-import java.util.*;
+import java.util.Map;
+import java.util.HashMap;
+
+/**
+ * Abstract class BinaryOperation that
+ * contains basic methods for all binary operations.
+ *
+ */
 
 abstract class BinaryOperation extends Expression {
     protected final Expression left;
@@ -12,6 +19,7 @@ abstract class BinaryOperation extends Expression {
     }
 
     abstract char getOperator();
+
     abstract int apply(int a, int b);
 
     @Override

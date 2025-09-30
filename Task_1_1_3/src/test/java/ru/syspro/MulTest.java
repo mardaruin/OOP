@@ -25,6 +25,8 @@ class MulTest {
     @Test
     void testDerivative() {
         Mul mul = new Mul(new Variable("x"), new Variable("y"));
-        assertEquals(new Add(new Mul(new Number(1), new Variable("y")), new Mul(new Variable("x"), new Number(0))), mul.derivative("x"));
+        assertEquals(new Add(new Mul(new Number(1), new Variable("y")),
+                new Mul(new Variable("x"), new Number(0))),
+                mul.derivative("x"));
     }
 }

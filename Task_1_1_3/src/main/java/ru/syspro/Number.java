@@ -1,6 +1,13 @@
 package ru.syspro;
 
-import java.util.*;
+import java.util.Map;
+import java.util.HashMap;
+
+/**
+ * The heir of Expression class.
+ * Implements variable logic for numbers.
+ *
+ */
 
 public class Number extends Expression {
     private final int value;
