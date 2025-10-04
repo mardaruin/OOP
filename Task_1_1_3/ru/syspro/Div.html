@@ -70,12 +70,14 @@ loadScripts(document, 'script');</script>
 <h1 title="Class Div" class="title">Class Div</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance"><a href="Expression.html" title="class in ru.syspro">ru.syspro.Expression</a>
 <div class="inheritance">ru.syspro.Div</div>
+</div>
 </div>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Div</span>
-<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<span class="extends-implements">extends <a href="Expression.html" title="class in ru.syspro">Expression</a></span></div>
 <div class="block">The heir of BinaryOperation class.
  Implements logic for binary operation div.</div>
 </section>
@@ -90,10 +92,10 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>protected final ru.syspro.Expression</code></div>
+<div class="col-first even-row-color"><code>protected final <a href="Expression.html" title="class in ru.syspro">Expression</a></code></div>
 <div class="col-second even-row-color"><code><a href="#left" class="member-name-link">left</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected final ru.syspro.Expression</code></div>
+<div class="col-first odd-row-color"><code>protected final <a href="Expression.html" title="class in ru.syspro">Expression</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#right" class="member-name-link">right</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
@@ -107,8 +109,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(ru.syspro.Expression,ru.syspro.Expression)" class="member-name-link">Div</a><wbr>(ru.syspro.Expression&nbsp;left,
- ru.syspro.Expression&nbsp;right)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(ru.syspro.Expression,ru.syspro.Expression)" class="member-name-link">Div</a><wbr>(<a href="Expression.html" title="class in ru.syspro">Expression</a>&nbsp;left,
+ <a href="Expression.html" title="class in ru.syspro">Expression</a>&nbsp;right)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -124,18 +126,27 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>ru.syspro.Expression</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Expression.html" title="class in ru.syspro">Expression</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#derivative(java.lang.String)" class="member-name-link">derivative</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;variable)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Differentiates the expression with respect to a specified variable.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;obj)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks if two objects are equal based on structure and content.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#eval(java.util.Map)" class="member-name-link">eval</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;variables)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Evaluates the value of the expression by
+ substituting given variable values.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#print()" class="member-name-link">print</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Outputs the string representation of this expression.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -159,13 +170,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="left">
 <h3>left</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">ru.syspro.Expression</span>&nbsp;<span class="element-name">left</span></div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="Expression.html" title="class in ru.syspro">Expression</a></span>&nbsp;<span class="element-name">left</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="right">
 <h3>right</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">ru.syspro.Expression</span>&nbsp;<span class="element-name">right</span></div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="Expression.html" title="class in ru.syspro">Expression</a></span>&nbsp;<span class="element-name">right</span></div>
 </section>
 </li>
 </ul>
@@ -179,8 +190,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(ru.syspro.Expression,ru.syspro.Expression)">
 <h3>Div</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Div</span><wbr><span class="parameters">(ru.syspro.Expression&nbsp;left,
- ru.syspro.Expression&nbsp;right)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Div</span><wbr><span class="parameters">(<a href="Expression.html" title="class in ru.syspro">Expression</a>&nbsp;left,
+ <a href="Expression.html" title="class in ru.syspro">Expression</a>&nbsp;right)</span></div>
 </section>
 </li>
 </ul>
@@ -194,25 +205,63 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="derivative(java.lang.String)">
 <h3>derivative</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">ru.syspro.Expression</span>&nbsp;<span class="element-name">derivative</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;variable)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Expression.html" title="class in ru.syspro">Expression</a></span>&nbsp;<span class="element-name">derivative</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;variable)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="Expression.html#derivative(java.lang.String)">Expression</a></code></span></div>
+<div class="block">Differentiates the expression with respect to a specified variable.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Expression.html#derivative(java.lang.String)">derivative</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in ru.syspro">Expression</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>variable</code> - Name of the variable used for differentiation</dd>
+<dt>Returns:</dt>
+<dd>New expression representing the derivative</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="print()">
 <h3>print</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">print</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="Expression.html#print()">Expression</a></code></span></div>
+<div class="block">Outputs the string representation of this expression.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Expression.html#print()">print</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in ru.syspro">Expression</a></code></dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="eval(java.util.Map)">
 <h3>eval</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">eval</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;variables)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="Expression.html#eval(java.util.Map)">Expression</a></code></span></div>
+<div class="block">Evaluates the value of the expression by
+ substituting given variable values.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Expression.html#eval(java.util.Map)">eval</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in ru.syspro">Expression</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>variables</code> - A map containing variable names
+                  as keys and their corresponding integer values</dd>
+<dt>Returns:</dt>
+<dd>The evaluated result of the expression</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="equals(java.lang.Object)">
 <h3>equals</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;obj)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="Expression.html#equals(java.lang.Object)">Expression</a></code></span></div>
+<div class="block">Checks if two objects are equal based on structure and content.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Expression.html#equals(java.lang.Object)">equals</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in ru.syspro">Expression</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>obj</code> - Object to compare against</dd>
+<dt>Returns:</dt>
+<dd>True if both objects represent equivalent expressions</dd>
+</dl>
 </section>
 </li>
 <li>
