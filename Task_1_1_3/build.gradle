@@ -4,13 +4,11 @@ plugins {
 }
 
 jacocoTestReport {
-    afterEvaluate {
-        classDirectories.setFrom(files(classDirectories.files.collect {
-            fileTree(dir: it, exclude: [
-                    "sys/pro/Main.class"
-            ])
-        }))
-    }
+    classDirectories.setFrom(
+            fileTree("${project.buildDir}/classes/java/main") {
+                exclude('**/Main.class')
+            }
+    )
     reports {
         xml.required = true
     }
@@ -21,6 +19,7 @@ jacocoTestReport {
 repositories {
     mavenCentral() 
 }
+
 
 dependencies {
     implementation platform('org.junit:junit-bom:5.9.2') // JUnit BOM
