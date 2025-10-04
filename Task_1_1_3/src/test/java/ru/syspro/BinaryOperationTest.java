@@ -36,8 +36,8 @@ class BinaryOperationTest {
 
     @Test
     void testEvalForAdd() {
-        Map<String, Integer> variables = new HashMap<>(); // Переменные не используются, т.к. это числа
-        assertEquals(15, add.eval(variables)); // Проверяем операцию сложения
+        Map<String, Integer> variables = new HashMap<>();
+        assertEquals(15, add.eval(variables));
     }
 
     @Test
