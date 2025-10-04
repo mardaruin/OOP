@@ -24,11 +24,7 @@ abstract class BinaryOperation extends Expression {
 
     @Override
     public void print() {
-        System.out.print('(');
-        left.print();
-        System.out.print(getOperator());
-        right.print();
-        System.out.print(')');
+        System.out.println(toString());
     }
 
     @Override

@@ -18,7 +18,7 @@ public class Number extends Expression {
 
     @Override
     public void print() {
-        System.out.println(value);
+        System.out.print(value);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Number extends Expression {
         if (obj == this) {
             return true;
         }
-        if (!(obj instanceof Number)) {
+        if (obj == null || !(obj instanceof Number)) {
             return false;
         }
         return ((Number) obj).value == this.value;
@@ -44,6 +44,6 @@ public class Number extends Expression {
 
     @Override
     public String toString() {
-        return "" + value;
+        return Integer.toString(value);
     }
 }

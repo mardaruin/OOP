@@ -34,6 +34,13 @@ class NumberTest {
     }
 
     @Test
+    void testEqualsNotIstanceof() {
+        Number num1 = new Number(5);
+        Variable var2 = new Variable("x");
+        assertFalse(num1.equals(var2));
+    }
+
+    @Test
     void testEqualsReturnFalse() {
         Number num1 = new Number(5);
         Number num2 = new Number(-5);
