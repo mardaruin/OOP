@@ -12,6 +12,10 @@ import java.util.HashMap;
 public class Number extends Expression {
     private final int value;
 
+    public int getValue() {
+        return value;
+    }
+
     public Number(int value) {
         this.value = value;
     }
