@@ -35,7 +35,7 @@ public class Number extends Expression {
         if (obj == this) {
             return true;
         }
-        if (obj == null || !(obj instanceof Number)) {
+        if (!(obj instanceof Number)) {
             return false;
         }
         return ((Number) obj).value == this.value;

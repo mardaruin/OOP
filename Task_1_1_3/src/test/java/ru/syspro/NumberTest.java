@@ -2,6 +2,8 @@ package ru.syspro;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Map;
+import java.util.HashMap;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -11,7 +13,7 @@ class NumberTest {
     @Test
     void testEvalReturnsCorrectValue() {
         Number num = new Number(5);
-        assertEquals(5, num.eval(null));
+        assertEquals(5, num.eval(new HashMap<>()));
     }
 
     @Test

@@ -21,6 +21,13 @@ public class Variable extends Expression {
         System.out.print(name);
     }
 
+    /**
+     * Evaluates the expression by substituting the given variable values.
+     * If any required variable is missing from the map, it defaults to 0.
+     *
+     * @param variables A map associating variable names with their respective integer values
+     * @return The computed value of the expression
+     */
     @Override
     public int eval(Map<String, Integer> variables) {
         return variables.getOrDefault(name, 0);
