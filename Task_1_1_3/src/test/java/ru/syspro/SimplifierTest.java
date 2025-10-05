@@ -5,6 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Test class for Simplifier functionality.
+ */
+
 public class SimplifierTest {
 
     @Test

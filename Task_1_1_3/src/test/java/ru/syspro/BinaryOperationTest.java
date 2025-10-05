@@ -48,7 +48,7 @@ class BinaryOperationTest {
 
     @Test
     void testEquals() {
-        BinaryOperation sameAdd= new Add(new Number(10), new Number(5));
+        BinaryOperation sameAdd = new Add(new Number(10), new Number(5));
         assertTrue(add.equals(sameAdd));
     }
 

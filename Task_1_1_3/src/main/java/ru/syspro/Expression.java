@@ -52,8 +52,8 @@ public abstract class Expression {
 
                     variables.put(parts[0], value);
                 } catch (NumberFormatException e) {
-                    throw new IllegalArgumentException("Non-integer value " +
-                            "found in assignment: '" + assign + "'");
+                    throw new IllegalArgumentException("Non-integer value "
+                            + "found in assignment: '" + assign + "'");
                 }
             }
         }

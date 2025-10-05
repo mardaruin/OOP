@@ -1,6 +1,9 @@
 package ru.syspro;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.List;
 
 /**
  * This class provides functionality to parse mathematical expressions represented as strings
@@ -11,11 +14,13 @@ import java.util.*;
 public class Parser {
 
     /**
-     * Parses a string representation of an expression and returns a corresponding instance of Expression.
+     * Parses a string representation of an expression and
+     * returns a corresponding instance of Expression.
      *
      * @param exprStr The string containing the expression to be parsed
      * @return An instance of Expression corresponding to the provided string
-     * @throws IllegalArgumentException If the input string is malformed or contains unsupported constructs
+     * @throws IllegalArgumentException If the input string
+     * is malformed or contains unsupported constructs
      */
     public static Expression parse(String exprStr) {
         exprStr = exprStr.trim();
@@ -26,7 +31,9 @@ public class Parser {
 
         try {
             return new Number(Integer.parseInt(exprStr));
-        } catch (NumberFormatException ignored) {}
+        } catch (NumberFormatException ignored) {
+            // Ignored intentionally: we're expecting this might happen in certain cases
+        }
 
         if (exprStr.matches("[a-zA-Z]")) {
             return new Variable(Character.toString(exprStr.charAt(0)));
