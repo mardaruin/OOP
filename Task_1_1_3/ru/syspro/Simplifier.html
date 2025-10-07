@@ -106,13 +106,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Expression.html" title="class in ru.syspro">Expression</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fullSimplify(ru.syspro.Expression)" class="member-name-link">fullSimplify</a><wbr>(<a href="Expression.html" title="class in ru.syspro">Expression</a>&nbsp;expr)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Performs a complete simplification process including both symbolic reduction and numerical evaluation.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Expression.html" title="class in ru.syspro">Expression</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fullyEvaluateIfPossible(ru.syspro.Expression)" class="member-name-link">fullyEvaluateIfPossible</a><wbr>(<a href="Expression.html" title="class in ru.syspro">Expression</a>&nbsp;expr)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Fully evaluates the expression if it's purely composed of constants.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Expression.html" title="class in ru.syspro">Expression</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#simplify(ru.syspro.Expression)" class="member-name-link">simplify</a><wbr>(<a href="Expression.html" title="class in ru.syspro">Expression</a>&nbsp;expr)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Attempts to simplify the given expression as far as possible without fully evaluating it.</div>
+</div>
 </div>
 </div>
 </div>
@@ -148,18 +154,41 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="simplify(ru.syspro.Expression)">
 <h3>simplify</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Expression.html" title="class in ru.syspro">Expression</a></span>&nbsp;<span class="element-name">simplify</span><wbr><span class="parameters">(<a href="Expression.html" title="class in ru.syspro">Expression</a>&nbsp;expr)</span></div>
+<div class="block">Attempts to simplify the given expression as far as possible without fully evaluating it.
+ Applies rules such as multiplying by zero or one, subtracting identical terms, etc.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>expr</code> - The expression to simplify</dd>
+<dt>Returns:</dt>
+<dd>A potentially simpler version of the original expression</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="fullyEvaluateIfPossible(ru.syspro.Expression)">
 <h3>fullyEvaluateIfPossible</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Expression.html" title="class in ru.syspro">Expression</a></span>&nbsp;<span class="element-name">fullyEvaluateIfPossible</span><wbr><span class="parameters">(<a href="Expression.html" title="class in ru.syspro">Expression</a>&nbsp;expr)</span></div>
+<div class="block">Fully evaluates the expression if it's purely composed of constants.
+ Otherwise, returns the original expression unchanged.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>expr</code> - The expression to evaluate</dd>
+<dt>Returns:</dt>
+<dd>Either a constant Number object if evaluation succeeds, or the original expression</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="fullSimplify(ru.syspro.Expression)">
 <h3>fullSimplify</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Expression.html" title="class in ru.syspro">Expression</a></span>&nbsp;<span class="element-name">fullSimplify</span><wbr><span class="parameters">(<a href="Expression.html" title="class in ru.syspro">Expression</a>&nbsp;expr)</span></div>
+<div class="block">Performs a complete simplification process including both symbolic reduction and numerical evaluation.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>expr</code> - The initial expression to simplify</dd>
+<dt>Returns:</dt>
+<dd>A fully simplified and possibly numerically evaluated expression</dd>
+</dl>
 </section>
 </li>
 </ul>
