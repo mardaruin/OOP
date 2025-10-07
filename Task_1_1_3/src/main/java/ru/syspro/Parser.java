@@ -29,7 +29,7 @@ public class Parser {
     /**
      * Parse simple expression.
      * Working with low priority operators(+, -).
-     * @return expr after parsing.
+     * @return expr
      */
 
     private Expression parseExpression() {
@@ -47,7 +47,9 @@ public class Parser {
                 } else {
                     result = new Sub(result, nextTerm);
                 }
-            } else break;
+            } else {
+                break;
+            }
         }
 
         return result;
@@ -56,7 +58,7 @@ public class Parser {
     /**
      * Parsing one simple expression.
      * Working with hidh priority operators (*, /).
-     * @return expr after parsing.
+     * @return expr
      */
     private Expression parseTerm() {
         Expression result = parseFactor();
@@ -73,7 +75,9 @@ public class Parser {
                 } else {
                     result = new Div(result, nextFactor);
                 }
-            } else break;
+            } else {
+                break;
+            }
         }
 
         return result;
@@ -82,7 +86,7 @@ public class Parser {
     /**
      * Parsing simple element (number, variable
      * or expression in ()).
-     * @return expression after parsing.
+     * @return
      */
     private Expression parseFactor() {
         if (pos >= exprStr.length()) {
@@ -100,8 +104,8 @@ public class Parser {
             return innerExpr;
         } else if ('0' <= currChar && currChar <= '9') {
             return parseNumber(currChar);
-        } else if ((currChar >= 'a' && currChar <= 'z') ||
-                (currChar >= 'A' && currChar <= 'Z')) {
+        } else if ((currChar >= 'a' && currChar <= 'z')
+                || (currChar >= 'A' && currChar <= 'Z')) {
             return new Variable(Character.toString(currChar));
         } else {
             throw new RuntimeException("Invalid character at position " + (pos - 1));
@@ -110,87 +114,18 @@ public class Parser {
 
     /**
      * Parsing number from startDigit.
-     * @param startDigit first digit of the number.
-     * @return parsed expression (number).
+     * @param startDigit
+     * @return
      */
     private Expression parseNumber(char startDigit) {
         StringBuilder numBuilder = new StringBuilder().append(startDigit);
 
-        while (pos < exprStr.length() &&
-                Character.isDigit(exprStr.charAt(pos))) {
+        while (pos < exprStr.length()
+                && Character.isDigit(exprStr.charAt(pos))) {
             numBuilder.append(exprStr.charAt(pos++));
         }
 
         return new Number(Integer.parseInt(numBuilder.toString()));
     }
 
-//    /**
-//     * Parses a string representation of an expression and
-//     * returns a corresponding instance of Expression.
-//     *
-//     * @param exprStr The string containing the expression to be parsed
-//     * @return An instance of Expression corresponding to the provided string
-//     * @throws IllegalArgumentException If the input string
-//     * is malformed or contains unsupported constructs
-//     */
-//    public static Expression parse(String exprStr) {
-//        exprStr = exprStr.trim();
-//
-//        if (exprStr.startsWith('(') && exprStr.endsWith(')')) {
-//            exprStr = exprStr.substring(1, exprStr.length() - 1).trim();
-//        }
-//
-//        try {
-//            return new Number(Integer.parseInt(exprStr));
-//        } catch (NumberFormatException ignored) {
-//            // Ignored intentionally: we're expecting this might happen in certain cases
-//        }
-//
-//        if (exprStr.matches('[a-zA-Z]')) {
-//            return new Variable(Character.toString(exprStr.charAt(0)));
-//        }
-//
-//        List<Character> operators = Arrays.asList('+', '-', '*', '/');
-//        char op = findOperator(exprStr, operators);
-//
-//        if (op != '\0') {
-//            String leftExpr = exprStr.substring(0, exprStr.indexOf(op)).trim();
-//            String rightExpr = exprStr.substring(exprStr.indexOf(op) + 1).trim();
-//
-//            Expression left = parse(leftExpr);
-//            Expression right = parse(rightExpr);
-//
-//            switch (op) {
-//                case '+': return new Add(left, right);
-//                case '-': return new Sub(left, right);
-//                case '*': return new Mul(left, right);
-//                case '/': return new Div(left, right);
-//                default: throw new RuntimeException('Unknown operator: ' + op);
-//            }
-//        }
-//
-//        throw new RuntimeException('Unable to parse expression: ' + exprStr);
-//    }
-//
-//    /**
-//     * Finds the first occurrence of one of the given operators that appears outside of parentheses.
-//     *
-//     * @param str       The string where we search for operators
-//     * @param operators A list of characters representing supported operators
-//     * @return The first encountered operator or '\0' if no such operator exists
-//     */
-//    private static char findOperator(String str, List<Character> operators) {
-//        Deque<Integer> stack = new ArrayDeque<>();
-//        for (int i = 0; i < str.length(); ++i) {
-//            char ch = str.charAt(i);
-//            if (ch == '(') {
-//                stack.push(i);
-//            } else if (ch == ')') {
-//                stack.pop();
-//            } else if (stack.isEmpty() && operators.contains(ch)) {
-//                return ch;
-//            }
-//        }
-//        return '\0';
-//    }
 }

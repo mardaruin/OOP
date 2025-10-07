@@ -5,6 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+
+/**
+ * Test for Expression class functionality.
+ */
 public class ExpressionTest {
 
     @Test

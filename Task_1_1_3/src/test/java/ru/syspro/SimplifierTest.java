@@ -144,7 +144,9 @@ public class SimplifierTest {
         Expression unknownVarExpr = new Add(new Variable("z"), new Number(5));
         try {
             Simplifier.fullyEvaluateIfPossible(unknownVarExpr);
-        } catch (IllegalArgumentException ignored) {}
+        } catch (IllegalArgumentException ignored) {
+            // Empty purposely
+        }
     }
 
 }

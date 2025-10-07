@@ -71,7 +71,8 @@ public class Simplifier {
     }
 
     /**
-     * Performs a complete simplification process including both symbolic reduction and numerical evaluation.
+     * Performs a complete simplification process
+     * including both symbolic reduction and numerical evaluation.
      *
      * @param expr The initial expression to simplify
      * @return A fully simplified and possibly numerically evaluated expression

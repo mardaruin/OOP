@@ -17,6 +17,11 @@ public class ParserTest {
 
     private Map<String, Integer> variables;
 
+
+    /**
+     * setup for tests: creating HashMap
+     * with variable's values
+     */
     @BeforeEach
     public void setUp() {
         variables = new HashMap<>();
