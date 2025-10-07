@@ -12,6 +12,10 @@ import java.util.HashMap;
 public class Variable extends Expression {
     private final String name;
 
+    public String getName() {
+        return name;
+    }
+
     public Variable(String name) {
         this.name = name;
     }
