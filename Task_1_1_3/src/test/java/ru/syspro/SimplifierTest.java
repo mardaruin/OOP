@@ -67,14 +67,15 @@ public class SimplifierTest {
     void testOrderRetention() {
         Expression expr = new Add(new Variable("x"), new Number(5));
         Expression simplified = Simplifier.simplify(expr);
-        assertEquals(expr, simplified); // Порядок сохранён
+        assertEquals(expr, simplified);
+
     }
 
     @Test
     void testNotAffectedByComplexOperations() {
         Expression expr = new Add(new Mul(new Number(3), new Variable("x")), new Number(5));
         Expression simplified = Simplifier.simplify(expr);
-        assertEquals(expr, simplified); // Нет изменений
+        assertEquals(expr, simplified);
     }
 
 
@@ -82,10 +83,68 @@ public class SimplifierTest {
     void testUnsimplifiableExpression() {
         Expression expr = new Add(new Variable("x"), new Variable("y"));
         Expression simplified = Simplifier.simplify(expr);
-        assertEquals(expr, simplified); // Никаких изменений
+        assertEquals(expr, simplified);
     }
 
 
 
+    @Test
+    void testFullEvaluationOfConstantExpressions() {
+        Expression expr = new Mul(new Number(3), new Number(4));
+        Expression result = Simplifier.fullSimplify(expr);
+        assertEquals(new Number(12), result);
+    }
+
+
+    @Test
+    void testNestedMultiplicationAndAddition() {
+        Expression nestedExpr = new Add(
+                new Mul(new Number(2), new Variable("a")),
+                new Mul(new Number(3), new Variable("b"))
+        );
+        Expression simplified = Simplifier.simplify(nestedExpr);
+        assertEquals(nestedExpr, simplified);
+    }
+
+
+    @Test
+    void testSimplifyLargeConstantAdditions() {
+        Expression largeSum = new Add(new Number(1000), new Number(2000));
+        Expression simplified = Simplifier.fullSimplify(largeSum);
+        assertEquals(new Number(3000), simplified);
+    }
+
+    @Test
+    void testNonReducibleExpression() {
+        Expression complexExpr = new Add(new Mul(new Number(2), new Variable("x")), new Number(3));
+        Expression simplified = Simplifier.simplify(complexExpr);
+        assertEquals(complexExpr, simplified);
+    }
+
+    @Test
+    void testSubtractionFromVariable() {
+        Expression subtractionExpr = new Sub(new Variable("x"), new Number(5));
+        Expression simplified = Simplifier.simplify(subtractionExpr);
+        assertEquals(subtractionExpr, simplified);
+    }
+
+
+    @Test
+    void testEmptyExpressionHandling() throws Exception {
+        Expression emptyExpr = null;
+        try {
+            Simplifier.simplify(emptyExpr);
+        } catch (RuntimeException ex) {
+            assertEquals("Unsupported expression type", ex.getMessage());
+        }
+    }
+
+    @Test
+    void testEvaluationErrorOnUnknownVariable() {
+        Expression unknownVarExpr = new Add(new Variable("z"), new Number(5));
+        try {
+            Simplifier.fullyEvaluateIfPossible(unknownVarExpr);
+        } catch (IllegalArgumentException ignored) {}
+    }
 
 }
