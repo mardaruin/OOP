@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,21 +27,21 @@ public class ParserTest {
 
     @Test
     public void testParseConstant() {
-        Expression expr = Parser.parse("5");
+        Expression expr = new Parser("5").parse();
         assertTrue(expr instanceof Number);
         assertEquals(5, ((Number) expr).getValue());
     }
 
     @Test
     public void testParseVariable() {
-        Expression expr = Parser.parse("x");
+        Expression expr = new Parser("x").parse();
         assertTrue(expr instanceof Variable);
         assertEquals("x", ((Variable) expr).getName());
     }
 
     @Test
     public void testParseAddOperation() {
-        Expression expr = Parser.parse("x+y");
+        Expression expr = new Parser("x+y").parse();
         assertTrue(expr instanceof Add);
         assertTrue(((BinaryOperation) expr).left instanceof Variable);
         assertTrue(((BinaryOperation) expr).right instanceof Variable);
@@ -48,7 +49,7 @@ public class ParserTest {
 
     @Test
     public void testParseSubtractOperation() {
-        Expression expr = Parser.parse("z-x");
+        Expression expr = new Parser("z-x").parse();
         assertTrue(expr instanceof Sub);
         assertTrue(((BinaryOperation) expr).left instanceof Variable);
         assertTrue(((BinaryOperation) expr).right instanceof Variable);
@@ -56,7 +57,7 @@ public class ParserTest {
 
     @Test
     public void testParseMultiplyOperation() {
-        Expression expr = Parser.parse("x*y");
+        Expression expr = new Parser("x*y").parse();
         assertTrue(expr instanceof Mul);
         assertTrue(((BinaryOperation) expr).left instanceof Variable);
         assertTrue(((BinaryOperation) expr).right instanceof Variable);
@@ -64,7 +65,7 @@ public class ParserTest {
 
     @Test
     public void testParseDivideOperation() {
-        Expression expr = Parser.parse("z/y");
+        Expression expr = new Parser("z/y").parse();
         assertTrue(expr instanceof Div);
         assertTrue(((BinaryOperation) expr).left instanceof Variable);
         assertTrue(((BinaryOperation) expr).right instanceof Variable);
@@ -72,7 +73,7 @@ public class ParserTest {
 
     @Test
     public void testParseNestedOperations() {
-        Expression expr = Parser.parse("x+(y*z)");
+        Expression expr = new Parser("x+(y*z)").parse();
         assertTrue(expr instanceof Add);
         assertTrue(((BinaryOperation) expr).left instanceof Variable);
         assertTrue(((BinaryOperation) expr).right instanceof Mul);
@@ -80,7 +81,7 @@ public class ParserTest {
 
     @Test
     public void testParseParenthesizedExpressions() {
-        Expression expr = Parser.parse("(x+y)*z");
+        Expression expr = new Parser("(x+y)*z").parse();
         assertTrue(expr instanceof Mul);
         assertTrue(((BinaryOperation) expr).left instanceof Add);
         assertTrue(((BinaryOperation) expr).right instanceof Variable);
@@ -88,7 +89,7 @@ public class ParserTest {
 
     @Test
     public void testParseNegativeNumbers() {
-        Expression expr = Parser.parse("0-x");
+        Expression expr = new Parser("0-x").parse();
         assertTrue(expr instanceof Sub);
         assertTrue(((BinaryOperation) expr).left instanceof Number);
         assertTrue(((BinaryOperation) expr).right instanceof Variable);
@@ -96,15 +97,70 @@ public class ParserTest {
 
     @Test
     public void testParseWhitespaceHandling() {
-        Expression expr = Parser.parse(" x ");
+        Expression expr = new Parser("  x  ").parse();
         assertTrue(expr instanceof Variable);
         assertEquals(((Variable) expr).getName(), "x");
     }
 
     @Test
     public void testParseUnrecognizedVariables() {
-        Expression expr = Parser.parse("w");
+        Expression expr = new Parser("w").parse();
         assertTrue(expr instanceof Variable);
         assertEquals(((Variable) expr).getName(), "w");
     }
+
+    @Test
+    public void testParseErrorOnMalformedInput() {
+        assertThrows(RuntimeException.class, () -> new Parser("x+").parse());
+    }
+
+    @Test
+    public void testSimpleAdditionWithoutBrackets() {
+        Expression expr = new Parser("x+y+z").parse();
+        assertTrue(expr instanceof Add);
+        assertEquals(9, expr.eval(variables));
+    }
+
+    @Test
+    public void testSimpleSubtractionWithoutBrackets() {
+        Expression expr = new Parser("z-y-x").parse();
+        assertTrue(expr instanceof Sub);
+        assertEquals(-1, expr.eval(variables));
+    }
+
+    @Test
+    public void testMixedOperationsWithoutBrackets() {
+        Expression expr = new Parser("x+y-z").parse();
+        assertTrue(expr instanceof Sub);
+        assertEquals(1, expr.eval(variables));
+    }
+
+    @Test
+    public void testMultiplicationAndDivisionWithoutBrackets() {
+        Expression expr = new Parser("z*y/x").parse();
+        assertTrue(expr instanceof Div);
+        assertEquals(6, expr.eval(variables));
+    }
+
+    @Test
+    public void testComplexArithmeticSequence() {
+        Expression expr = new Parser("x+y*z/x").parse();
+        assertTrue(expr instanceof Add);
+        assertEquals(8, expr.eval(variables));
+    }
+
+    @Test
+    public void testMultipleOperatorsInRow() {
+        Expression expr = new Parser("x+x*x").parse();
+        assertTrue(expr instanceof Add);
+        assertEquals(6, expr.eval(variables));
+    }
+
+    @Test
+    public void testNegationInChain() {
+        Expression expr = new Parser("0-(x+y)").parse();
+        assertTrue(expr instanceof Sub);
+        assertEquals(-5, expr.eval(variables));
+    }
+
 }
