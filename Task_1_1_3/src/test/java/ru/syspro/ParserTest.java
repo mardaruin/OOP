@@ -19,8 +19,8 @@ public class ParserTest {
 
 
     /**
-     * setup for tests: creating HashMap
-     * with variable's values
+     * Setup for tests: creating HashMap
+     * with variable's values.
      */
     @BeforeEach
     public void setUp() {
@@ -143,7 +143,8 @@ public class ParserTest {
     @Test
     public void testComplexArithmeticSequence() {
         Expression expr = new Parser("x+y*z/x").parse();
-        var expected = new Add(new Variable("x"), new Div(new Mul(new Variable("y"), new Variable("z")), new Variable("x")));
+        var expected = new Add(new Variable("x"), new Div(
+                new Mul(new Variable("y"), new Variable("z")), new Variable("x")));
         assertEquals(expected, expr);
     }
 

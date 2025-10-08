@@ -29,7 +29,8 @@ public class Parser {
     /**
      * Parse simple expression.
      * Working with low priority operators(+, -).
-     * @return expr
+     *
+     * @return
      */
 
     private Expression parseExpression() {
@@ -58,7 +59,8 @@ public class Parser {
     /**
      * Parsing one simple expression.
      * Working with hidh priority operators (*, /).
-     * @return expr
+     *
+     * @return
      */
     private Expression parseTerm() {
         Expression result = parseFactor();
@@ -85,7 +87,8 @@ public class Parser {
 
     /**
      * Parsing simple element (number, variable
-     * or expression in ()).
+     * or expression in staples).
+     *
      * @return
      */
     private Expression parseFactor() {
@@ -114,6 +117,7 @@ public class Parser {
 
     /**
      * Parsing number from startDigit.
+     *
      * @param startDigit
      * @return
      */
