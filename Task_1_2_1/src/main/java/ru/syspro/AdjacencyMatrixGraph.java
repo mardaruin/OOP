@@ -11,8 +11,8 @@ import java.util.HashSet;
  * Graph as Adjacency Matrix.
  *
  */
-public class AdjacencyMatrixGraph implements IGraph {
-    private final int MAX_NODES = 100;
+public class AdjacencyMatrixGraph implements Igraph {
+    private final int maxNodes = 100;
     private int[][] adjacencyMatrix;
     private int numNodes;
 
@@ -22,13 +22,13 @@ public class AdjacencyMatrixGraph implements IGraph {
     }
 
     public AdjacencyMatrixGraph() {
-        this.adjacencyMatrix = new int[MAX_NODES][MAX_NODES];
+        this.adjacencyMatrix = new int[maxNodes][maxNodes];
         this.numNodes = 0;
     }
 
     @Override
     public void addNode() {
-        if (numNodes + 1 > MAX_NODES) {
+        if (numNodes + 1 > maxNodes) {
             throw new IllegalStateException("Maximum number of nodes already reached.");
         }
         numNodes++;

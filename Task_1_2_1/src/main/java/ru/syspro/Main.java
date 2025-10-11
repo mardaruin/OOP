@@ -1,25 +1,29 @@
 package ru.syspro;
 
-
 /**
- * Entry point for running the program directly from the command-line.
+ * Entry point for running the program
+ * directly from the command-line.
+ *
  */
-
 public class Main {
+
+    /**
+     * Main entry point for launching the application.
+     */
     public static void main(String[] args) {
-        IGraph matrixGraph = new AdjacencyMatrixGraph();
+        Igraph matrixGraph = new AdjacencyMatrixGraph();
         matrixGraph.addNode();
         matrixGraph.addNode();
         matrixGraph.addEdge(0, 1);
         System.out.println(matrixGraph.toString());
 
-        IGraph incidenceGraph = new IncidenceMatrixGraph();
+        Igraph incidenceGraph = new IncidenceMatrixGraph();
         incidenceGraph.addNode();
         incidenceGraph.addNode();
         incidenceGraph.addEdge(0, 1);
         System.out.println(incidenceGraph.toString());
 
-        IGraph listGraph = new AdjacencyListGraph();
+        Igraph listGraph = new AdjacencyListGraph();
         listGraph.addNode();
         listGraph.addNode();
         listGraph.addEdge(0, 1);

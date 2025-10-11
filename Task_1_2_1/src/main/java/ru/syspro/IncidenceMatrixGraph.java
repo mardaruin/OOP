@@ -9,9 +9,9 @@ import java.util.ArrayList;
  * Graph as Incidence Matrix.
  *
  */
-public class IncidenceMatrixGraph implements IGraph {
-    private final int MAX_NODES = 100;
-    private final int MAX_EDGES = 100;
+public class IncidenceMatrixGraph implements Igraph {
+    private final int maxNodes = 100;
+    private final int maxEdges = 100;
     private int[][] incidenceMatrix;
     private int numNodes;
     private int numEdges;
@@ -21,15 +21,19 @@ public class IncidenceMatrixGraph implements IGraph {
         return numNodes;
     }
 
+    /**
+     * Creates graph as incidence matrix.
+     *
+     */
     public IncidenceMatrixGraph() {
-        this.incidenceMatrix = new int[MAX_NODES][MAX_EDGES];
+        this.incidenceMatrix = new int[maxNodes][maxEdges];
         this.numNodes = 0;
         this.numEdges = 0;
     }
 
     @Override
     public void addNode() {
-        if (numNodes + 1 > MAX_NODES) {
+        if (numNodes + 1 > maxNodes) {
             throw new IllegalStateException("Maximum number of nodes already reached.");
         }
         numNodes++;
@@ -77,7 +81,7 @@ public class IncidenceMatrixGraph implements IGraph {
     public void addEdge(int fromNode, int toNode) {
         checkNode(fromNode);
         checkNode(toNode);
-        if (numEdges + 1 > MAX_EDGES) {
+        if (numEdges + 1 > maxEdges) {
             throw new IllegalStateException("Maximum number of nodes already reached.");
         }
         numEdges++;
@@ -111,8 +115,8 @@ public class IncidenceMatrixGraph implements IGraph {
 
     private int findEdgeIndex(int fromNode, int toNode) {
         for (int i = 0; i < numEdges; i++) {
-            if ((incidenceMatrix[fromNode][i] == 1 && incidenceMatrix[toNode][i] == -1) ||
-                    (incidenceMatrix[fromNode][i] == -1 && incidenceMatrix[toNode][i] == 1)) {
+            if ((incidenceMatrix[fromNode][i] == 1 && incidenceMatrix[toNode][i] == -1)
+                    || (incidenceMatrix[fromNode][i] == -1 && incidenceMatrix[toNode][i] == 1)) {
                 return i;
             }
         }

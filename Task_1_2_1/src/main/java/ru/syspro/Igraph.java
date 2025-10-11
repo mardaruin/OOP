@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Basic interface for graph.
  */
-public interface IGraph {
+public interface Igraph {
 
     void addNode();
 

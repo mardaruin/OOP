@@ -9,7 +9,13 @@ import java.util.Queue;
  *
  */
 public class TopSort {
-    public static List<Integer> topSort(IGraph graph) {
+
+    /**
+     * Topological sort.
+     * @param graph
+     * @return
+     */
+    public static List<Integer> topSort(Igraph graph) {
         List<Integer> result = new LinkedList<>();
         Queue<Integer> queue = new LinkedList<>();
         int[] inDegree = new int[graph.getNumNodes()];

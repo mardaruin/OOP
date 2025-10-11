@@ -15,7 +15,7 @@ import java.util.Collections;
  * Graph as Adjacency List.
  *
  */
-public class AdjacencyListGraph implements IGraph {
+public class AdjacencyListGraph implements Igraph {
     private Map<Integer, Set<Integer>> adjList;
     private int numNodes;
 

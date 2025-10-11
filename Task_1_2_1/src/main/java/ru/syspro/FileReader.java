@@ -11,7 +11,15 @@ import java.util.Scanner;
  *
  */
 public class FileReader {
-    public static IGraph readFromFile(String filePath) throws Exception {
+
+    /**
+     * Detect requirement type of gpaph
+     *  and calls appropriate method.
+     * @param filePath
+     * @return
+     * @throws Exception
+     */
+    public static Igraph readFromFile(String filePath) throws Exception {
         try (Scanner scanner = new Scanner(Files.newInputStream(Paths.get(filePath)))) {
             String firstLine = scanner.nextLine().trim();
             switch (firstLine) {
@@ -27,7 +35,7 @@ public class FileReader {
         }
     }
 
-    private static IGraph parseAdjacencyMatrix(Scanner scanner) {
+    private static Igraph parseAdjacencyMatrix(Scanner scanner) {
         var graph = new AdjacencyMatrixGraph();
         while (scanner.hasNextLine()) {
             String[] row = scanner.nextLine().split("\\s+");
@@ -42,7 +50,7 @@ public class FileReader {
         return graph;
     }
 
-    private static IGraph parseIncidenceMatrix(Scanner scanner) {
+    private static Igraph parseIncidenceMatrix(Scanner scanner) {
         var graph = new IncidenceMatrixGraph();
         while (scanner.hasNextLine()) {
             String[] row = scanner.nextLine().split("\\s+");
@@ -57,7 +65,7 @@ public class FileReader {
         return graph;
     }
 
-    private static IGraph parseAdjacencyList(Scanner scanner) {
+    private static Igraph parseAdjacencyList(Scanner scanner) {
         var graph = new AdjacencyListGraph();
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine().trim();
