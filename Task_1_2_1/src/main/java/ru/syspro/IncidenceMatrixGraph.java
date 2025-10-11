@@ -21,6 +21,10 @@ public class IncidenceMatrixGraph implements Igraph {
         return numNodes;
     }
 
+    public int getNumEdges() {
+        return numEdges;
+    }
+
     /**
      * Creates graph as incidence matrix.
      *
@@ -66,12 +70,8 @@ public class IncidenceMatrixGraph implements Igraph {
             System.arraycopy(incidenceMatrix[i], 0, incidenceMatrix[i - 1], 0, numEdges);
         }
 
-        for (int i = 0; i < numNodes; i++) {
-            for (int j = 0; j < nodeEdges; j++) {
-                incidenceMatrix[i][numEdges - 1 - j] = 0;
-            }
-            incidenceMatrix[numNodes - 1][i] = 0;
-        }
+
+        Arrays.fill(incidenceMatrix[numNodes - 1], 0);
 
         numNodes--;
         return true;

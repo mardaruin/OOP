@@ -1,13 +1,16 @@
 package ru.syspro;
 
+
 import org.junit.jupiter.api.Test;
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class TestIncidenceMatrixGraph {
+
 
     @Test
     void testAddAndDeleteNode() {
@@ -87,4 +90,57 @@ class TestIncidenceMatrixGraph {
         graph.addNode();
         assertFalse(graph.deleteEdge(0, 1));
     }
+
+    @Test
+    void testGraphEdgeCreationOrder() {
+        IncidenceMatrixGraph graph = new IncidenceMatrixGraph();
+        graph.addNode();
+        graph.addNode();
+        graph.addEdge(0, 1);
+        graph.addEdge(1, 0);
+        assertEquals(2, graph.getNumEdges());
+    }
+
+    @Test
+    void testAddingDuplicateEdge() {
+        IncidenceMatrixGraph graph = new IncidenceMatrixGraph();
+        graph.addNode();
+        graph.addNode();
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 1);
+        assertEquals(2, graph.getNumEdges());
+    }
+
+    @Test
+    void testGettingNeighborsWhenEdgeRemoved() {
+        IncidenceMatrixGraph graph = new IncidenceMatrixGraph();
+        graph.addNode();
+        graph.addNode();
+        graph.addEdge(0, 1);
+        graph.deleteEdge(0, 1);
+        assertTrue(graph.getNeighbors(0).isEmpty());
+    }
+
+    @Test
+    void testGetNeighborsForDisjointNodes() {
+        IncidenceMatrixGraph graph = new IncidenceMatrixGraph();
+        graph.addNode();
+        graph.addNode();
+        graph.addNode();
+        graph.addEdge(0, 1);
+        assertTrue(graph.getNeighbors(2).isEmpty());
+    }
+
+    @Test
+    void testRemovingMiddleNodeBreaksChain() {
+        IncidenceMatrixGraph graph = new IncidenceMatrixGraph();
+        graph.addNode();
+        graph.addNode();
+        graph.addNode();
+        graph.addEdge(0, 1);
+        graph.addEdge(1, 2);
+        graph.deleteNode(1);
+        assertTrue(graph.getNeighbors(0).isEmpty());
+    }
+
 }
