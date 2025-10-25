@@ -13,8 +13,8 @@ public class TopSort {
     /**
      * Topological sort.
      *
-     * @param graph
-     * @return
+     * @param graph graph
+     * @return sorted graph
      */
     public static List<Integer> topSort(Igraph graph) {
         List<Integer> result = new LinkedList<>();

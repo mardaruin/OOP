@@ -19,7 +19,7 @@ public class StudentRecordBook {
      * Creates a record book with
      *  paid or unpaid form of studing.
      *
-     * @param studingForm
+     * @param studingForm paid or unpaid form of studing
      */
     public StudentRecordBook(String studingForm) {
         if (studingForm.equals("бюджет")) {
@@ -32,9 +32,9 @@ public class StudentRecordBook {
     /**
      * Addes a mark on exam.
      *
-     * @param subjectname
-     * @param grade
-     * @param sessionNumber
+     * @param subjectname name of subject
+     * @param grade grade
+     * @param sessionNumber session number
      */
     public void addExam(String subjectname, String grade, int sessionNumber) {
         this.exams.add(new Exam(subjectname, grade, sessionNumber));
@@ -43,9 +43,9 @@ public class StudentRecordBook {
     /**
      * Addes a mark on diff zachet.
      *
-     * @param subjectname
-     * @param grade
-     * @param sessionNumber
+     * @param subjectname name of subject
+     * @param grade grade
+     * @param sessionNumber session number
      */
     public void addDiffZachet(String subjectname, String grade, int sessionNumber) {
         this.diffZachets.add(new DiffZachet(subjectname, grade, sessionNumber));
@@ -54,8 +54,8 @@ public class StudentRecordBook {
     /**
      * Counts amount of requiremented grade.
      *
-     * @param grade
-     * @return
+     * @param grade grade
+     * @return amount of requiremented grade
      */
     public int countGrades(String grade) {
         int count = 0;
@@ -75,7 +75,7 @@ public class StudentRecordBook {
     /**
      * Calculates average grade.
      *
-     * @return
+     * @return average score
      */
     public double calculateAverageScore() {
         int totalA = countGrades("отлично");
@@ -83,14 +83,15 @@ public class StudentRecordBook {
         int totalC = countGrades("удовлетворительно");
         int totalD = countGrades("неудовлетворительно");
 
-        return ((totalA * 5 + totalB * 4 + totalC * 3 + totalD * 2) / (double) (exams.size() + diffZachets.size()));
+        return ((totalA * 5 + totalB * 4 + totalC * 3 + totalD * 2) /
+                (double) (exams.size() + diffZachets.size()));
     }
 
 
     /**
      * Checks for ability to transfer on budget.
      *
-     * @return
+     * @return true if can be transfered, false otherwise
      */
     public boolean canTransferToBudget() {
         List<String> lastTwoSessions = extractLastTwoSessions();
@@ -106,7 +107,7 @@ public class StudentRecordBook {
      * Extracts grades on last two sessions.
      * Method for canTransferToBudget().
      *
-     * @return
+     * @return grades on last two sessions
      */
     private List<String> extractLastTwoSessions() {
         List<String> grades = new ArrayList<>();
@@ -114,13 +115,15 @@ public class StudentRecordBook {
                 diffZachets.stream().mapToInt(DiffZachet::getSessionNumber).max().orElse(0));
 
         for (Exam exam : exams) {
-            if (exam.getSessionNumber() == lastSession || exam.getSessionNumber() == lastSession - 1) {
+            if (exam.getSessionNumber() == lastSession
+                    || exam.getSessionNumber() == lastSession - 1) {
                 grades.add(exam.getGrade());
             }
         }
 
         for (DiffZachet diffZachet : diffZachets) {
-            if (diffZachet.getSessionNumber() == lastSession || diffZachet.getSessionNumber() == lastSession - 1) {
+            if (diffZachet.getSessionNumber() == lastSession
+                    || diffZachet.getSessionNumber() == lastSession - 1) {
                 grades.add(diffZachet.getGrade());
             }
         }
@@ -132,7 +135,7 @@ public class StudentRecordBook {
      * Extracts last grades on each of exams.
      * Method for canGetRedDiploma().
      *
-     * @return
+     * @return last grades
      */
     private List<String> extractLastGrades() {
         Map<String, String> lastGrades = new HashMap<>();
@@ -151,7 +154,7 @@ public class StudentRecordBook {
     /**
      * Chaeck for ability to get red diploma.
      *
-     * @return
+     * @return true if able to get red diploma, false otherwise
      */
     public boolean canGetRedDiploma() {
         List<String> lastGrades = extractLastGrades();
