@@ -11,4 +11,5 @@ public class Exam extends Grade {
     public int getSessionNumber() {
         return sessionNumber;
     }
+
 }
