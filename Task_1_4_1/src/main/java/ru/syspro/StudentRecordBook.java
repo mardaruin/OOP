@@ -5,11 +5,22 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
+
+/**
+ * Class that contains record book logic.
+ *
+ */
 public class StudentRecordBook {
     private List<Exam> exams = new ArrayList<>();
     private List<DiffZachet> diffZachets = new ArrayList<>();
     private boolean isPaidForm;
 
+    /**
+     * Creates a record book with
+     *  paid or unpaid form of studing.
+     *
+     * @param studingForm
+     */
     public StudentRecordBook(String studingForm) {
         if (studingForm.equals("бюджет")) {
             this.isPaidForm = false;
@@ -18,14 +29,34 @@ public class StudentRecordBook {
         }
     }
 
+    /**
+     * Addes a mark on exam.
+     *
+     * @param subjectname
+     * @param grade
+     * @param sessionNumber
+     */
     public void addExam(String subjectname, String grade, int sessionNumber) {
         this.exams.add(new Exam(subjectname, grade, sessionNumber));
     }
 
+    /**
+     * Addes a mark on diff zachet.
+     *
+     * @param subjectname
+     * @param grade
+     * @param sessionNumber
+     */
     public void addDiffZachet(String subjectname, String grade, int sessionNumber) {
         this.diffZachets.add(new DiffZachet(subjectname, grade, sessionNumber));
     }
 
+    /**
+     * Counts amount of requiremented grade.
+     *
+     * @param grade
+     * @return
+     */
     public int countGrades(String grade) {
         int count = 0;
         for (Exam exam : exams) {
@@ -41,24 +72,42 @@ public class StudentRecordBook {
         return count;
     }
 
+    /**
+     * Calculates average grade.
+     *
+     * @return
+     */
     public double calculateAverageScore() {
         int totalA = countGrades("отлично");
         int totalB = countGrades("хорошо");
         int totalC = countGrades("удовлетворительно");
         int totalD = countGrades("неудовлетворительно");
 
-        return ((totalA * 5 + totalB * 4 + totalC * 3 + totalD * 2) / (double)(exams.size() + diffZachets.size()));
+        return ((totalA * 5 + totalB * 4 + totalC * 3 + totalD * 2) / (double) (exams.size() + diffZachets.size()));
     }
 
+
+    /**
+     * Checks for ability to transfer on budget.
+     *
+     * @return
+     */
     public boolean canTransferToBudget() {
         List<String> lastTwoSessions = extractLastTwoSessions();
-        if (!lastTwoSessions.contains("удовлетворительно") && !lastTwoSessions.contains("неудовлетворительно") && isPaidForm) {
+        if (!lastTwoSessions.contains("удовлетворительно")
+                && !lastTwoSessions.contains("неудовлетворительно") && isPaidForm) {
             isPaidForm = false;
             return true;
         }
         return false;
     }
 
+    /**
+     * Extracts grades on last two sessions.
+     * Method for canTransferToBudget().
+     *
+     * @return
+     */
     private List<String> extractLastTwoSessions() {
         List<String> grades = new ArrayList<>();
         int lastSession = Math.max(exams.stream().mapToInt(Exam::getSessionNumber).max().orElse(0),
@@ -79,6 +128,12 @@ public class StudentRecordBook {
         return grades;
     }
 
+    /**
+     * Extracts last grades on each of exams.
+     * Method for canGetRedDiploma().
+     *
+     * @return
+     */
     private List<String> extractLastGrades() {
         Map<String, String> lastGrades = new HashMap<>();
 
@@ -93,6 +148,11 @@ public class StudentRecordBook {
         return new ArrayList<>(lastGrades.values());
     }
 
+    /**
+     * Chaeck for ability to get red diploma.
+     *
+     * @return
+     */
     public boolean canGetRedDiploma() {
         List<String> lastGrades = extractLastGrades();
         int totalLastA = 0;
@@ -106,6 +166,11 @@ public class StudentRecordBook {
                 && ((double)(totalLastA / lastGrades.size()) >= 0.75);
     }
 
+    /**
+     * Checks for ability to get an increased scholarship.
+     *
+     * @return
+     */
     public boolean eligibleForScholarshipIncrease() {
         return calculateAverageScore() > 4.5;
     }

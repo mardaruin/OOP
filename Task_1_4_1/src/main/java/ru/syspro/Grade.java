@@ -1,5 +1,10 @@
 package ru.syspro;
 
+
+/**
+ * Basic class containing grade logic.
+ *
+ */
 public class Grade {
     protected final String subjectName;
     protected final String grade;

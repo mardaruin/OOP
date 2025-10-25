@@ -1,5 +1,10 @@
 package ru.syspro;
 
+
+/**
+ * Basic class containing diff zachet logic.
+ *
+ */
 public class DiffZachet extends Grade {
     private final int sessionNumber;
 

@@ -23,7 +23,8 @@ public class Main {
         System.out.println("Средний балл: " + recordBook.calculateAverageScore());
         System.out.println("Можно перевестись на бюджет: " + recordBook.canTransferToBudget());
         System.out.println("Можно получить красный диплом: " + recordBook.canGetRedDiploma());
-        System.out.println("Можно получить повышенную стипендию: " + recordBook.eligibleForScholarshipIncrease());
+        System.out.println("Можно получить повышенную стипендию: "
+                + recordBook.eligibleForScholarshipIncrease());
 
     }
 }
