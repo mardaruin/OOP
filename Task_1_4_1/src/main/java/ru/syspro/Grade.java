@@ -11,7 +11,15 @@ public class Grade {
     private final int sessionNumber;
     private final FormOfAssessment assessmentForm;
 
-    public Grade(String subjectName, GradeType type, int sessionNumber, FormOfAssessment assessmentForm) {
+    /**
+     * Creates a grade with next param:
+     * @param subject Name name of subj
+     * @param type Grade type
+     * @param sessionNumber session number
+     * @param assessmentForm exam or diff zach or qualification work
+     */
+    public Grade(String subjectName, GradeType type,
+                 int sessionNumber, FormOfAssessment assessmentForm) {
         this.type = type;
         this.subjectName = subjectName;
         this.sessionNumber = sessionNumber;
@@ -31,30 +39,3 @@ public class Grade {
     }
 }
 
-enum GradeType {
-    ОТЛИЧНО,
-    ХОРОШО,
-    УДОВЛЕТВОРИТЕЛЬНО,
-    НЕУДОВЛЕТВОРИТЕЛЬНО,
-    КВАЛИФИКАЦИОННАЯ_РАБОТА_ОТЛИЧНО;
-
-    public int getNumericValue() {
-        switch(this) {
-            case ОТЛИЧНО:
-            case КВАЛИФИКАЦИОННАЯ_РАБОТА_ОТЛИЧНО:
-                return 5;
-            case ХОРОШО:
-                return 4;
-            case УДОВЛЕТВОРИТЕЛЬНО:
-                return 3;
-            default:
-                return 2;
-        }
-    }
-}
-
-enum FormOfAssessment {
-    ЭКЗАМЕН,
-    ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ,
-    КВАЛИФИКАЦИОННАЯ_РАБОТА
-}

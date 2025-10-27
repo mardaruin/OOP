@@ -14,8 +14,10 @@ public class Main {
         StudentRecordBook recordBook = new StudentRecordBook(StudingForm.БЮДЖЕТ);
         recordBook.addGrade("Math", GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
         recordBook.addGrade("English", GradeType.ХОРОШО, 1, FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Programming", GradeType.ОТЛИЧНО, 1, FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
-        recordBook.addGrade("Algorithms", GradeType.ХОРОШО, 2, FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
+        recordBook.addGrade("Programming", GradeType.ОТЛИЧНО, 1,
+                FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
+        recordBook.addGrade("Algorithms", GradeType.ХОРОШО, 2,
+                FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
         recordBook.addGrade("Math", GradeType.ОТЛИЧНО, 2, FormOfAssessment.ЭКЗАМЕН);
         recordBook.addGrade("Algorithms", GradeType.ХОРОШО, 3, FormOfAssessment.ЭКЗАМЕН);
         recordBook.addGrade("Math", GradeType.ОТЛИЧНО, 3, FormOfAssessment.ЭКЗАМЕН);
