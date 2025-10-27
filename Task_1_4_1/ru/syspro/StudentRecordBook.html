@@ -88,7 +88,7 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String)" class="member-name-link">StudentRecordBook</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;studingForm)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(ru.syspro.StudingForm)" class="member-name-link">StudentRecordBook</a><wbr>(ru.syspro.StudingForm&nbsp;form)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Creates a record book with
   paid or unpaid form of studing.</div>
@@ -108,42 +108,36 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addDiffZachet(java.lang.String,java.lang.String,int)" class="member-name-link">addDiffZachet</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subjectname,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;grade,
- int&nbsp;sessionNumber)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addGrade(java.lang.String,ru.syspro.GradeType,int,ru.syspro.FormOfAssessment)" class="member-name-link">addGrade</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subjectname,
+ ru.syspro.GradeType&nbsp;grade,
+ int&nbsp;sessionNumber,
+ ru.syspro.FormOfAssessment&nbsp;assessmentForm)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Addes a mark on diff zachet.</div>
+<div class="block">Addes a mark on grade(exam or diff zachet).</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addExam(java.lang.String,java.lang.String,int)" class="member-name-link">addExam</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subjectname,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;grade,
- int&nbsp;sessionNumber)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#calculateAverageScore()" class="member-name-link">calculateAverageScore</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Addes a mark on exam.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#calculateAverageScore()" class="member-name-link">calculateAverageScore</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Calculates average grade.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#canGetRedDiploma()" class="member-name-link">canGetRedDiploma</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#canGetRedDiploma()" class="member-name-link">canGetRedDiploma</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Chaeck for ability to get red diploma.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#canTransferToBudget()" class="member-name-link">canTransferToBudget</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#canTransferToBudget()" class="member-name-link">canTransferToBudget</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Checks for ability to transfer on budget.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#countGrades(java.lang.String)" class="member-name-link">countGrades</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;grade)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#countGrades(ru.syspro.GradeType)" class="member-name-link">countGrades</a><wbr>(ru.syspro.GradeType&nbsp;type)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Counts amount of requiremented grade.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#eligibleForScholarshipIncrease()" class="member-name-link">eligibleForScholarshipIncrease</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#eligibleForScholarshipIncrease()" class="member-name-link">eligibleForScholarshipIncrease</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Checks for ability to get an increased scholarship.</div>
 </div>
 </div>
@@ -164,14 +158,14 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(java.lang.String)">
+<section class="detail" id="&lt;init&gt;(ru.syspro.StudingForm)">
 <h3>StudentRecordBook</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">StudentRecordBook</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;studingForm)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">StudentRecordBook</span><wbr><span class="parameters">(ru.syspro.StudingForm&nbsp;form)</span></div>
 <div class="block">Creates a record book with
   paid or unpaid form of studing.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>studingForm</code> - paid or unpaid form of studing</dd>
+<dd><code>form</code> - paid or unpaid form of studing</dd>
 </dl>
 </section>
 </li>
@@ -184,43 +178,30 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="addExam(java.lang.String,java.lang.String,int)">
-<h3>addExam</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addExam</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subjectname,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;grade,
- int&nbsp;sessionNumber)</span></div>
-<div class="block">Addes a mark on exam.</div>
+<section class="detail" id="addGrade(java.lang.String,ru.syspro.GradeType,int,ru.syspro.FormOfAssessment)">
+<h3>addGrade</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addGrade</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subjectname,
+ ru.syspro.GradeType&nbsp;grade,
+ int&nbsp;sessionNumber,
+ ru.syspro.FormOfAssessment&nbsp;assessmentForm)</span></div>
+<div class="block">Addes a mark on grade(exam or diff zachet).</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>subjectname</code> - name of subject</dd>
-<dd><code>grade</code> - grade</dd>
+<dd><code>grade</code> - gradetype</dd>
 <dd><code>sessionNumber</code> - session number</dd>
+<dd><code>assessmentForm</code> - exam or diff zach or qualification work</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="addDiffZachet(java.lang.String,java.lang.String,int)">
-<h3>addDiffZachet</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addDiffZachet</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subjectname,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;grade,
- int&nbsp;sessionNumber)</span></div>
-<div class="block">Addes a mark on diff zachet.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>subjectname</code> - name of subject</dd>
-<dd><code>grade</code> - grade</dd>
-<dd><code>sessionNumber</code> - session number</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="countGrades(java.lang.String)">
+<section class="detail" id="countGrades(ru.syspro.GradeType)">
 <h3>countGrades</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">countGrades</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;grade)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">countGrades</span><wbr><span class="parameters">(ru.syspro.GradeType&nbsp;type)</span></div>
 <div class="block">Counts amount of requiremented grade.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>grade</code> - grade</dd>
+<dd><code>type</code> - type</dd>
 <dt>Returns:</dt>
 <dd>amount of requiremented grade</dd>
 </dl>
@@ -266,6 +247,7 @@ loadScripts(document, 'script');</script>
 <div class="block">Checks for ability to get an increased scholarship.</div>
 <dl class="notes">
 <dt>Returns:</dt>
+<dd>true if can be transfered, false otherwise</dd>
 </dl>
 </section>
 </li>

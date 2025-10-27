@@ -48,16 +48,12 @@ loadScripts(document, 'script');</script>
 <div class="header">
 <h1>Index</h1>
 </div>
-<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a>
+<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a>
 <h2 class="title" id="I:A">A</h2>
 <dl class="index">
-<dt><a href="ru/syspro/StudentRecordBook.html#addDiffZachet(java.lang.String,java.lang.String,int)" class="member-name-link">addDiffZachet(String, String, int)</a> - Method in class ru.syspro.<a href="ru/syspro/StudentRecordBook.html" title="class in ru.syspro">StudentRecordBook</a></dt>
+<dt><a href="ru/syspro/StudentRecordBook.html#addGrade(java.lang.String,ru.syspro.GradeType,int,ru.syspro.FormOfAssessment)" class="member-name-link">addGrade(String, GradeType, int, FormOfAssessment)</a> - Method in class ru.syspro.<a href="ru/syspro/StudentRecordBook.html" title="class in ru.syspro">StudentRecordBook</a></dt>
 <dd>
-<div class="block">Addes a mark on diff zachet.</div>
-</dd>
-<dt><a href="ru/syspro/StudentRecordBook.html#addExam(java.lang.String,java.lang.String,int)" class="member-name-link">addExam(String, String, int)</a> - Method in class ru.syspro.<a href="ru/syspro/StudentRecordBook.html" title="class in ru.syspro">StudentRecordBook</a></dt>
-<dd>
-<div class="block">Addes a mark on exam.</div>
+<div class="block">Addes a mark on grade(exam or diff zachet).</div>
 </dd>
 </dl>
 <h2 class="title" id="I:C">C</h2>
@@ -74,7 +70,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Checks for ability to transfer on budget.</div>
 </dd>
-<dt><a href="ru/syspro/StudentRecordBook.html#countGrades(java.lang.String)" class="member-name-link">countGrades(String)</a> - Method in class ru.syspro.<a href="ru/syspro/StudentRecordBook.html" title="class in ru.syspro">StudentRecordBook</a></dt>
+<dt><a href="ru/syspro/StudentRecordBook.html#countGrades(ru.syspro.GradeType)" class="member-name-link">countGrades(GradeType)</a> - Method in class ru.syspro.<a href="ru/syspro/StudentRecordBook.html" title="class in ru.syspro">StudentRecordBook</a></dt>
 <dd>
 <div class="block">Counts amount of requiremented grade.</div>
 </dd>
@@ -85,8 +81,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Basic class containing diff zachet logic.</div>
 </dd>
-<dt><a href="ru/syspro/DiffZachet.html#%3Cinit%3E(java.lang.String,java.lang.String,int)" class="member-name-link">DiffZachet(String, String, int)</a> - Constructor for class ru.syspro.<a href="ru/syspro/DiffZachet.html" title="class in ru.syspro">DiffZachet</a></dt>
-<dd>&nbsp;</dd>
+<dt><a href="ru/syspro/DiffZachet.html#%3Cinit%3E(java.lang.String,ru.syspro.GradeType,int)" class="member-name-link">DiffZachet(String, GradeType, int)</a> - Constructor for class ru.syspro.<a href="ru/syspro/DiffZachet.html" title="class in ru.syspro">DiffZachet</a></dt>
+<dd>
+<div class="block">Creates a dyff zachet with next param:</div>
+</dd>
 </dl>
 <h2 class="title" id="I:E">E</h2>
 <dl class="index">
@@ -98,27 +96,33 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Basic class containing exam logic.</div>
 </dd>
-<dt><a href="ru/syspro/Exam.html#%3Cinit%3E(java.lang.String,java.lang.String,int)" class="member-name-link">Exam(String, String, int)</a> - Constructor for class ru.syspro.<a href="ru/syspro/Exam.html" title="class in ru.syspro">Exam</a></dt>
-<dd>&nbsp;</dd>
+<dt><a href="ru/syspro/Exam.html#%3Cinit%3E(java.lang.String,ru.syspro.GradeType,int)" class="member-name-link">Exam(String, GradeType, int)</a> - Constructor for class ru.syspro.<a href="ru/syspro/Exam.html" title="class in ru.syspro">Exam</a></dt>
+<dd>
+<div class="block">Creates an exam with next param:</div>
+</dd>
 </dl>
 <h2 class="title" id="I:G">G</h2>
 <dl class="index">
-<dt><a href="ru/syspro/Grade.html#getGrade()" class="member-name-link">getGrade()</a> - Method in class ru.syspro.<a href="ru/syspro/Grade.html" title="class in ru.syspro">Grade</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="ru/syspro/DiffZachet.html#getSessionNumber()" class="member-name-link">getSessionNumber()</a> - Method in class ru.syspro.<a href="ru/syspro/DiffZachet.html" title="class in ru.syspro">DiffZachet</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="ru/syspro/Exam.html#getSessionNumber()" class="member-name-link">getSessionNumber()</a> - Method in class ru.syspro.<a href="ru/syspro/Exam.html" title="class in ru.syspro">Exam</a></dt>
-<dd>&nbsp;</dd>
+<dt><a href="ru/syspro/Grade.html#getSessionNumber()" class="member-name-link">getSessionNumber()</a> - Method in class ru.syspro.<a href="ru/syspro/Grade.html" title="class in ru.syspro">Grade</a></dt>
+<dd>
+<div class="block">Get a session number.</div>
+</dd>
 <dt><a href="ru/syspro/Grade.html#getSubjectName()" class="member-name-link">getSubjectName()</a> - Method in class ru.syspro.<a href="ru/syspro/Grade.html" title="class in ru.syspro">Grade</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="ru/syspro/Grade.html#grade" class="member-name-link">grade</a> - Variable in class ru.syspro.<a href="ru/syspro/Grade.html" title="class in ru.syspro">Grade</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Get a subjectname.</div>
+</dd>
+<dt><a href="ru/syspro/Grade.html#getType()" class="member-name-link">getType()</a> - Method in class ru.syspro.<a href="ru/syspro/Grade.html" title="class in ru.syspro">Grade</a></dt>
+<dd>
+<div class="block">Get a grade type.</div>
+</dd>
 <dt><a href="ru/syspro/Grade.html" class="type-name-link" title="class in ru.syspro">Grade</a> - Class in <a href="ru/syspro/package-summary.html">ru.syspro</a></dt>
 <dd>
 <div class="block">Basic class containing grade logic.</div>
 </dd>
-<dt><a href="ru/syspro/Grade.html#%3Cinit%3E(java.lang.String,java.lang.String)" class="member-name-link">Grade(String, String)</a> - Constructor for class ru.syspro.<a href="ru/syspro/Grade.html" title="class in ru.syspro">Grade</a></dt>
-<dd>&nbsp;</dd>
+<dt><a href="ru/syspro/Grade.html#%3Cinit%3E(java.lang.String,ru.syspro.GradeType,int,ru.syspro.FormOfAssessment)" class="member-name-link">Grade(String, GradeType, int, FormOfAssessment)</a> - Constructor for class ru.syspro.<a href="ru/syspro/Grade.html" title="class in ru.syspro">Grade</a></dt>
+<dd>
+<div class="block">Creates a grade with next params:.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:M">M</h2>
 <dl class="index">
@@ -145,15 +149,24 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Class that contains record book logic.</div>
 </dd>
-<dt><a href="ru/syspro/StudentRecordBook.html#%3Cinit%3E(java.lang.String)" class="member-name-link">StudentRecordBook(String)</a> - Constructor for class ru.syspro.<a href="ru/syspro/StudentRecordBook.html" title="class in ru.syspro">StudentRecordBook</a></dt>
+<dt><a href="ru/syspro/StudentRecordBook.html#%3Cinit%3E(ru.syspro.StudingForm)" class="member-name-link">StudentRecordBook(StudingForm)</a> - Constructor for class ru.syspro.<a href="ru/syspro/StudentRecordBook.html" title="class in ru.syspro">StudentRecordBook</a></dt>
 <dd>
 <div class="block">Creates a record book with
   paid or unpaid form of studing.</div>
 </dd>
 <dt><a href="ru/syspro/Grade.html#subjectName" class="member-name-link">subjectName</a> - Variable in class ru.syspro.<a href="ru/syspro/Grade.html" title="class in ru.syspro">Grade</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">subjectName.</div>
+</dd>
 </dl>
-<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a></main>
+<h2 class="title" id="I:T">T</h2>
+<dl class="index">
+<dt><a href="ru/syspro/Grade.html#type" class="member-name-link">type</a> - Variable in class ru.syspro.<a href="ru/syspro/Grade.html" title="class in ru.syspro">Grade</a></dt>
+<dd>
+<div class="block">type.</div>
+</dd>
+</dl>
+<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a></main>
 </div>
 </div>
 </body>
