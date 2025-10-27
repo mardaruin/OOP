@@ -11,14 +11,14 @@ public class Main {
      * Main entry point for launching the application.
      */
     public static void main(String[] args) {
-        StudentRecordBook recordBook = new StudentRecordBook("бюджет");
-        recordBook.addExam("Math", "отлично", 1);
-        recordBook.addExam("English", "хорошо", 1);
-        recordBook.addDiffZachet("Programming", "отлично", 1);
-        recordBook.addDiffZachet("Algorithms", "хорошо", 2);
-        recordBook.addExam("Math", "отлично", 2);
-        recordBook.addExam("Algorithms", "хорошо", 3);
-        recordBook.addExam("Math", "отлично", 3);
+        StudentRecordBook recordBook = new StudentRecordBook(StudingForm.БЮДЖЕТ);
+        recordBook.addGrade("Math", GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("English", GradeType.ХОРОШО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Programming", GradeType.ОТЛИЧНО, 1, FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
+        recordBook.addGrade("Algorithms", GradeType.ХОРОШО, 2, FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
+        recordBook.addGrade("Math", GradeType.ОТЛИЧНО, 2, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Algorithms", GradeType.ХОРОШО, 3, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Math", GradeType.ОТЛИЧНО, 3, FormOfAssessment.ЭКЗАМЕН);
 
         System.out.println("Средний балл: " + recordBook.calculateAverageScore());
         System.out.println("Можно перевестись на бюджет: " + recordBook.canTransferToBudget());

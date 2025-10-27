@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 /**
@@ -11,8 +13,8 @@ import java.util.Map;
  *
  */
 public class StudentRecordBook {
-    private List<Exam> exams = new ArrayList<>();
-    private List<DiffZachet> diffZachets = new ArrayList<>();
+
+    private List<Grade> grades = new ArrayList<>();
     private boolean isPaidForm;
 
     /**
@@ -21,55 +23,32 @@ public class StudentRecordBook {
      *
      * @param studingForm paid or unpaid form of studing
      */
-    public StudentRecordBook(String studingForm) {
-        if (studingForm.equals("бюджет")) {
-            this.isPaidForm = false;
-        } else {
-            this.isPaidForm = true;
-        }
+    public StudentRecordBook(StudingForm form) {
+        this.isPaidForm = form.getForm();
     }
 
     /**
-     * Addes a mark on exam.
+     * Addes a mark on grade(exam or diff zachet).
      *
      * @param subjectname name of subject
-     * @param grade grade
+     * @param grade gradetype
      * @param sessionNumber session number
      */
-    public void addExam(String subjectname, String grade, int sessionNumber) {
-        this.exams.add(new Exam(subjectname, grade, sessionNumber));
+    public void addGrade(String subjectname, GradeType grade, int sessionNumber, FormOfAssessment assessmentForm) {
+        this.grades.add(new Grade(subjectname, grade, sessionNumber, assessmentForm));
     }
 
-    /**
-     * Addes a mark on diff zachet.
-     *
-     * @param subjectname name of subject
-     * @param grade grade
-     * @param sessionNumber session number
-     */
-    public void addDiffZachet(String subjectname, String grade, int sessionNumber) {
-        this.diffZachets.add(new DiffZachet(subjectname, grade, sessionNumber));
-    }
 
     /**
      * Counts amount of requiremented grade.
      *
-     * @param grade grade
+     * @param type type
      * @return amount of requiremented grade
      */
-    public int countGrades(String grade) {
-        int count = 0;
-        for (Exam exam : exams) {
-            if (exam.getGrade().equals(grade)) {
-                count += 1;
-            }
-        }
-        for (DiffZachet diffZachet : diffZachets) {
-            if (diffZachet.getGrade().equals(grade)) {
-                count += 1;
-            }
-        }
-        return count;
+    public int countGrades(GradeType type) {
+        return (int) grades.stream()
+                .filter(grade -> grade.getType() == type)
+                .count();
     }
 
     /**
@@ -78,13 +57,11 @@ public class StudentRecordBook {
      * @return average score
      */
     public double calculateAverageScore() {
-        int totalA = countGrades("отлично");
-        int totalB = countGrades("хорошо");
-        int totalC = countGrades("удовлетворительно");
-        int totalD = countGrades("неудовлетворительно");
+        int sumOfScores = grades.stream()
+                .mapToInt(grade -> grade.getType().getNumericValue())
+                .sum();
 
-        return ((totalA * 5 + totalB * 4 + totalC * 3 + totalD * 2) /
-                (double) (exams.size() + diffZachets.size()));
+        return (double) sumOfScores / grades.size();
     }
 
 
@@ -94,9 +71,9 @@ public class StudentRecordBook {
      * @return true if can be transfered, false otherwise
      */
     public boolean canTransferToBudget() {
-        List<String> lastTwoSessions = extractLastTwoSessions();
-        if (!lastTwoSessions.contains("удовлетворительно")
-                && !lastTwoSessions.contains("неудовлетворительно") && isPaidForm) {
+        List<GradeType> lastTwoSessions = extractLastTwoSessions();
+        if (!lastTwoSessions.contains(GradeType.УДОВЛЕТВОРИТЕЛЬНО)
+                && !lastTwoSessions.contains(GradeType.НЕУДОВЛЕТВОРИТЕЛЬНО) && isPaidForm) {
             isPaidForm = false;
             return true;
         }
@@ -109,46 +86,21 @@ public class StudentRecordBook {
      *
      * @return grades on last two sessions
      */
-    private List<String> extractLastTwoSessions() {
-        List<String> grades = new ArrayList<>();
-        int lastSession = Math.max(exams.stream().mapToInt(Exam::getSessionNumber).max().orElse(0),
-                diffZachets.stream().mapToInt(DiffZachet::getSessionNumber).max().orElse(0));
+    private List<GradeType> extractLastTwoSessions() {
+        Optional<Integer> maxSession = grades.stream()
+                .map(Grade::getSessionNumber)
+                .max(Integer::compareTo);
+        if (maxSession.isPresent()) {
+            int currentSession = maxSession.get();
+            int prevSession = currentSession - 1;
 
-        for (Exam exam : exams) {
-            if (exam.getSessionNumber() == lastSession
-                    || exam.getSessionNumber() == lastSession - 1) {
-                grades.add(exam.getGrade());
-            }
+            return grades.stream()
+                    .filter(grade -> grade.getSessionNumber() == currentSession ||
+                            grade.getSessionNumber() == prevSession)
+                    .map(Grade::getType)
+                    .collect(Collectors.toList());
         }
-
-        for (DiffZachet diffZachet : diffZachets) {
-            if (diffZachet.getSessionNumber() == lastSession
-                    || diffZachet.getSessionNumber() == lastSession - 1) {
-                grades.add(diffZachet.getGrade());
-            }
-        }
-
-        return grades;
-    }
-
-    /**
-     * Extracts last grades on each of exams.
-     * Method for canGetRedDiploma().
-     *
-     * @return last grades
-     */
-    private List<String> extractLastGrades() {
-        Map<String, String> lastGrades = new HashMap<>();
-
-        for (Exam exam : exams) {
-            lastGrades.put(exam.getSubjectName(), exam.getGrade());
-        }
-
-        for (DiffZachet dz : diffZachets) {
-            lastGrades.put(dz.getSubjectName(), dz.getGrade());
-        }
-
-        return new ArrayList<>(lastGrades.values());
+        return new ArrayList<>();
     }
 
     /**
@@ -157,16 +109,15 @@ public class StudentRecordBook {
      * @return true if able to get red diploma, false otherwise
      */
     public boolean canGetRedDiploma() {
-        List<String> lastGrades = extractLastGrades();
-        int totalLastA = 0;
-        for (String grade : lastGrades) {
-            if (grade == "отлично") {
-                totalLastA += 1;
-            }
-        }
-        return !lastGrades.contains("удовлетворительно")
-                && !lastGrades.contains("неудовлетворительно")
-                && ((double)(totalLastA / lastGrades.size()) >= 0.75);
+        List<GradeType> gradesInLastSessions = extractLastTwoSessions();
+        long excellentCount = gradesInLastSessions.stream()
+                .filter(type -> type == GradeType.ОТЛИЧНО ||
+                        type == GradeType.КВАЛИФИКАЦИОННАЯ_РАБОТА_ОТЛИЧНО)
+                .count();
+
+        return !gradesInLastSessions.contains(GradeType.УДОВЛЕТВОРИТЕЛЬНО) &&
+                !gradesInLastSessions.contains(GradeType.НЕУДОВЛЕТВОРИТЕЛЬНО) &&
+                (double) excellentCount / gradesInLastSessions.size() >= 0.75;
     }
 
     /**
@@ -178,4 +129,20 @@ public class StudentRecordBook {
         return calculateAverageScore() > 4.5;
     }
 
+}
+
+enum StudingForm {
+    БЮДЖЕТ,
+    ПЛАТНОЕ;
+
+    public boolean getForm() {
+        switch (this) {
+            case БЮДЖЕТ:
+                return false;
+            case ПЛАТНОЕ:
+                return true;
+            default:
+                throw new IllegalStateException("Unexpected StudingForm: " + this.name());
+        }
+    }
 }
