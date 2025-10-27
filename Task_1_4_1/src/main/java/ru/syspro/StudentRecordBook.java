@@ -33,6 +33,7 @@ public class StudentRecordBook {
      * @param subjectname name of subject
      * @param grade gradetype
      * @param sessionNumber session number
+     * @param assessmentForm exam or diff zach or qualification work
      */
     public void addGrade(String subjectname, GradeType grade,
                          int sessionNumber, FormOfAssessment assessmentForm) {
