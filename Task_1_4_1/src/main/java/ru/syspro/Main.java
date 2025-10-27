@@ -10,7 +10,7 @@ public class Main {
     /**
      * Main entry point for launching the application.
      *
-     * @param params
+     * @param args params
      */
     public static void main(String[] args) {
         StudentRecordBook recordBook = new StudentRecordBook(StudingForm.БЮДЖЕТ);

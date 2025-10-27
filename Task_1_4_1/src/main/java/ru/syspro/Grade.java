@@ -7,27 +7,32 @@ package ru.syspro;
  */
 public class Grade {
     /**
-     * subjectName
+     * subjectName.
+     *
      */
     protected final String subjectName;
 
     /**
-     * type
+     * type.
+     *
      */
     protected final GradeType type;
 
     /**
-     * sessionNumber
+     * sessionNumber.
+     *
      */
     private final int sessionNumber;
 
     /**
-     * assessmentForm
+     * assessmentForm.
+     *
      */
     private final FormOfAssessment assessmentForm;
 
     /**
-     * Creates a grade with next param:
+     * Creates a grade with next params:.
+     *
      * @param subjectName Name name of subj
      * @param type Grade type
      * @param sessionNumber session number
@@ -42,7 +47,8 @@ public class Grade {
     }
 
     /**
-     * Get a grade type
+     * Get a grade type.
+     *
      * @return type
      */
     public GradeType getType() {
@@ -50,7 +56,8 @@ public class Grade {
     }
 
     /**
-     * Get a subjectname
+     * Get a subjectname.
+     *
      * @return name
      */
     public  String getSubjectName() {
@@ -58,7 +65,8 @@ public class Grade {
     }
 
     /**
-     * Get a session number
+     * Get a session number.
+     *
      * @return number
      */
     public int getSessionNumber() {
