@@ -121,6 +121,34 @@ public class StudentRecordBookTest {
     }
 
     @Test
+    public void testCanGetRedDiplomaWithoutQualificationWork() {
+        StudentRecordBook recordBook = new StudentRecordBook(StudingForm.БЮДЖЕТ);
+        recordBook.addGrade("Math", Grade.GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Physics", Grade.GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Programming", Grade.GradeType.ОТЛИЧНО, 2,
+                FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
+        recordBook.addGrade("Algorithms", Grade.GradeType.ОТЛИЧНО, 2,
+                FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
+
+        boolean canGetRedDiploma = recordBook.canGetRedDiploma();
+        assertTrue(canGetRedDiploma);
+    }
+
+    @Test
+    public void testCanNotGetRedDiplomaWithoutQualificationWork() {
+        StudentRecordBook recordBook = new StudentRecordBook(StudingForm.БЮДЖЕТ);
+        recordBook.addGrade("Math", Grade.GradeType.ХОРОШО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Physics", Grade.GradeType.ХОРОШО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Programming", Grade.GradeType.ОТЛИЧНО, 2,
+                FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
+        recordBook.addGrade("Algorithms", Grade.GradeType.ХОРОШО, 2,
+                FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
+
+        boolean canGetRedDiploma = recordBook.canGetRedDiploma();
+        assertFalse(canGetRedDiploma);
+    }
+
+    @Test
     public void testEligibleForScholarshipIncrease() {
         StudentRecordBook recordBook = new StudentRecordBook(StudingForm.БЮДЖЕТ);
         recordBook.addGrade("Math", Grade.GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);

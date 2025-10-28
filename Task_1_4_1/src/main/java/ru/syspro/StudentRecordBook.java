@@ -117,12 +117,20 @@ public class StudentRecordBook {
                 .filter(type -> type == Grade.GradeType.ОТЛИЧНО)
                 .count();
 
-        return !gradesInLastSessions.contains(Grade.GradeType.УДОВЛЕТВОРИТЕЛЬНО)
-                && !gradesInLastSessions.contains(Grade.GradeType.НЕУДОВЛЕТВОРИТЕЛЬНО)
-                && grades.stream()
-                    .anyMatch(grade -> grade.getAssessmentForm() == FormOfAssessment.КВАЛИФИКАЦИОННАЯ_РАБОТА
-                            && grade.getType() == Grade.GradeType.ОТЛИЧНО)
-                && (double) excellentCount / gradesInLastSessions.size() >= 0.75;
+        boolean hasBadGrades = gradesInLastSessions.contains(Grade.GradeType.УДОВЛЕТВОРИТЕЛЬНО)
+                || gradesInLastSessions.contains(Grade.GradeType.НЕУДОВЛЕТВОРИТЕЛЬНО);
+
+        boolean enoughExcellence = (double) excellentCount / gradesInLastSessions.size() >= 0.75;
+
+        Optional<Grade> qualifyingWork = grades.stream()
+                .filter(grade -> grade.getAssessmentForm() == FormOfAssessment.КВАЛИФИКАЦИОННАЯ_РАБОТА)
+                .findAny();
+
+        if (hasBadGrades || !enoughExcellence) {
+            return false;
+        }
+
+        return !qualifyingWork.isPresent() || (qualifyingWork.get().getType() == Grade.GradeType.ОТЛИЧНО);
     }
 
     /**
