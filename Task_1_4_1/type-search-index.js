@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.syspro","l":"DiffZachet"},{"p":"ru.syspro","l":"Exam"},{"p":"ru.syspro","l":"Grade"},{"p":"ru.syspro","l":"Main"},{"p":"ru.syspro","l":"StudentRecordBook"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.syspro","l":"Grade"},{"p":"ru.syspro","l":"Main"},{"p":"ru.syspro","l":"StudentRecordBook"}];updateSearchResults();

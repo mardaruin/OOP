@@ -73,10 +73,6 @@ loadScripts(document, 'script');</script>
 <div class="inheritance">ru.syspro.Grade</div>
 </div>
 <section class="class-description" id="class-description">
-<dl class="notes">
-<dt>Direct Known Subclasses:</dt>
-<dd><code><a href="DiffZachet.html" title="class in ru.syspro">DiffZachet</a></code>, <code><a href="Exam.html" title="class in ru.syspro">Exam</a></code></dd>
-</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Grade</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
@@ -98,7 +94,7 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">subjectName.</div>
 </div>
-<div class="col-first odd-row-color"><code>protected final ru.syspro.GradeType</code></div>
+<div class="col-first odd-row-color"><code>protected final ru.syspro.Grade.GradeType</code></div>
 <div class="col-second odd-row-color"><code><a href="#type" class="member-name-link">type</a></code></div>
 <div class="col-last odd-row-color">
 <div class="block">type.</div>
@@ -114,8 +110,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,ru.syspro.GradeType,int,ru.syspro.FormOfAssessment)" class="member-name-link">Grade</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subjectName,
- ru.syspro.GradeType&nbsp;type,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,ru.syspro.Grade.GradeType,int,ru.syspro.FormOfAssessment)" class="member-name-link">Grade</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subjectName,
+ ru.syspro.Grade.GradeType&nbsp;type,
  int&nbsp;sessionNumber,
  ru.syspro.FormOfAssessment&nbsp;assessmentForm)</code></div>
 <div class="col-last even-row-color">
@@ -135,19 +131,24 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSessionNumber()" class="member-name-link">getSessionNumber</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>ru.syspro.FormOfAssessment</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAssessmentForm()" class="member-name-link">getAssessmentForm</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Get assessement form.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSessionNumber()" class="member-name-link">getSessionNumber</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Get a session number.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSubjectName()" class="member-name-link">getSubjectName</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSubjectName()" class="member-name-link">getSubjectName</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Get a subjectname.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>ru.syspro.GradeType</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getType()" class="member-name-link">getType</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>ru.syspro.Grade.GradeType</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getType()" class="member-name-link">getType</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Get a grade type.</div>
 </div>
 </div>
@@ -177,7 +178,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="type">
 <h3>type</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">ru.syspro.GradeType</span>&nbsp;<span class="element-name">type</span></div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">ru.syspro.Grade.GradeType</span>&nbsp;<span class="element-name">type</span></div>
 <div class="block">type.</div>
 </section>
 </li>
@@ -190,10 +191,10 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(java.lang.String,ru.syspro.GradeType,int,ru.syspro.FormOfAssessment)">
+<section class="detail" id="&lt;init&gt;(java.lang.String,ru.syspro.Grade.GradeType,int,ru.syspro.FormOfAssessment)">
 <h3>Grade</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Grade</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subjectName,
- ru.syspro.GradeType&nbsp;type,
+ ru.syspro.Grade.GradeType&nbsp;type,
  int&nbsp;sessionNumber,
  ru.syspro.FormOfAssessment&nbsp;assessmentForm)</span></div>
 <div class="block">Creates a grade with next params:.</div>
@@ -217,7 +218,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getType()">
 <h3>getType</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">ru.syspro.GradeType</span>&nbsp;<span class="element-name">getType</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">ru.syspro.Grade.GradeType</span>&nbsp;<span class="element-name">getType</span>()</div>
 <div class="block">Get a grade type.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -244,6 +245,17 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>number</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getAssessmentForm()">
+<h3>getAssessmentForm</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">ru.syspro.FormOfAssessment</span>&nbsp;<span class="element-name">getAssessmentForm</span>()</div>
+<div class="block">Get assessement form.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>form</dd>
 </dl>
 </section>
 </li>
