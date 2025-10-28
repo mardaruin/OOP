@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class StudentRecordBook {
 
     private List<Grade> grades = new ArrayList<>();
-    private boolean isPaidForm;
+    private StudingForm isPaidForm;
 
     /**
      * Creates a record book with
@@ -24,7 +24,7 @@ public class StudentRecordBook {
      * @param form paid or unpaid form of studing
      */
     public StudentRecordBook(StudingForm form) {
-        this.isPaidForm = form.getForm();
+        this.isPaidForm = form;
     }
 
     /**
@@ -35,7 +35,7 @@ public class StudentRecordBook {
      * @param sessionNumber session number
      * @param assessmentForm exam or diff zach or qualification work
      */
-    public void addGrade(String subjectname, GradeType grade,
+    public void addGrade(String subjectname, Grade.GradeType grade,
                          int sessionNumber, FormOfAssessment assessmentForm) {
         this.grades.add(new Grade(subjectname, grade, sessionNumber, assessmentForm));
     }
@@ -47,7 +47,7 @@ public class StudentRecordBook {
      * @param type type
      * @return amount of requiremented grade
      */
-    public int countGrades(GradeType type) {
+    public int countGrades(Grade.GradeType type) {
         return (int) grades.stream()
                 .filter(grade -> grade.getType() == type)
                 .count();
@@ -73,10 +73,11 @@ public class StudentRecordBook {
      * @return true if can be transfered, false otherwise
      */
     public boolean canTransferToBudget() {
-        List<GradeType> lastTwoSessions = extractLastTwoSessions();
-        if (!lastTwoSessions.contains(GradeType.УДОВЛЕТВОРИТЕЛЬНО)
-                && !lastTwoSessions.contains(GradeType.НЕУДОВЛЕТВОРИТЕЛЬНО) && isPaidForm) {
-            isPaidForm = false;
+        List<Grade.GradeType> lastTwoSessions = extractLastTwoSessions();
+        if (!lastTwoSessions.contains(Grade.GradeType.УДОВЛЕТВОРИТЕЛЬНО)
+                && !lastTwoSessions.contains(Grade.GradeType.НЕУДОВЛЕТВОРИТЕЛЬНО)
+                && this.isPaidForm.equals(StudingForm.ПЛАТНОЕ)) {
+            isPaidForm = StudingForm.БЮДЖЕТ;
             return true;
         }
         return false;
@@ -88,7 +89,7 @@ public class StudentRecordBook {
      *
      * @return grades on last two sessions
      */
-    private List<GradeType> extractLastTwoSessions() {
+    private List<Grade.GradeType> extractLastTwoSessions() {
         Optional<Integer> maxSession = grades.stream()
                 .map(Grade::getSessionNumber)
                 .max(Integer::compareTo);
@@ -111,14 +112,16 @@ public class StudentRecordBook {
      * @return true if able to get red diploma, false otherwise
      */
     public boolean canGetRedDiploma() {
-        List<GradeType> gradesInLastSessions = extractLastTwoSessions();
+        List<Grade.GradeType> gradesInLastSessions = extractLastTwoSessions();
         long excellentCount = gradesInLastSessions.stream()
-                .filter(type -> type == GradeType.ОТЛИЧНО
-                        || type == GradeType.КВАЛИФИКАЦИОННАЯ_РАБОТА_ОТЛИЧНО)
+                .filter(type -> type == Grade.GradeType.ОТЛИЧНО)
                 .count();
 
-        return !gradesInLastSessions.contains(GradeType.УДОВЛЕТВОРИТЕЛЬНО)
-                && !gradesInLastSessions.contains(GradeType.НЕУДОВЛЕТВОРИТЕЛЬНО)
+        return !gradesInLastSessions.contains(Grade.GradeType.УДОВЛЕТВОРИТЕЛЬНО)
+                && !gradesInLastSessions.contains(Grade.GradeType.НЕУДОВЛЕТВОРИТЕЛЬНО)
+                && grades.stream()
+                    .anyMatch(grade -> grade.getAssessmentForm() == FormOfAssessment.КВАЛИФИКАЦИОННАЯ_РАБОТА
+                            && grade.getType() == Grade.GradeType.ОТЛИЧНО)
                 && (double) excellentCount / gradesInLastSessions.size() >= 0.75;
     }
 
@@ -136,15 +139,4 @@ public class StudentRecordBook {
 enum StudingForm {
     БЮДЖЕТ,
     ПЛАТНОЕ;
-
-    public boolean getForm() {
-        switch (this) {
-            case БЮДЖЕТ:
-                return false;
-            case ПЛАТНОЕ:
-                return true;
-            default:
-                throw new IllegalStateException("Unexpected StudingForm: " + this.name());
-        }
-    }
 }

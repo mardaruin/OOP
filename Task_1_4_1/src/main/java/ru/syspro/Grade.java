@@ -6,6 +6,24 @@ package ru.syspro;
  *
  */
 public class Grade {
+
+    enum GradeType {
+        ОТЛИЧНО(5),
+        ХОРОШО(4),
+        УДОВЛЕТВОРИТЕЛЬНО(3),
+        НЕУДОВЛЕТВОРИТЕЛЬНО(2);
+
+        private final int numericValue;
+
+        GradeType(int numericValue) {
+            this.numericValue = numericValue;
+        }
+
+        public int getNumericValue() {
+            return numericValue;
+        }
+    }
+
     /**
      * subjectName.
      *
@@ -71,6 +89,15 @@ public class Grade {
      */
     public int getSessionNumber() {
         return sessionNumber;
+    }
+
+    /**
+     * Get assessement form.
+     *
+     * @return form
+     */
+    public FormOfAssessment getAssessmentForm() {
+        return assessmentForm;
     }
 }
 

@@ -14,15 +14,15 @@ public class Main {
      */
     public static void main(String[] args) {
         StudentRecordBook recordBook = new StudentRecordBook(StudingForm.БЮДЖЕТ);
-        recordBook.addGrade("Math", GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("English", GradeType.ХОРОШО, 1, FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Programming", GradeType.ОТЛИЧНО, 1,
+        recordBook.addGrade("Math", Grade.GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("English", Grade.GradeType.ХОРОШО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Programming", Grade.GradeType.ОТЛИЧНО, 1,
                 FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
-        recordBook.addGrade("Algorithms", GradeType.ХОРОШО, 2,
+        recordBook.addGrade("Algorithms", Grade.GradeType.ХОРОШО, 2,
                 FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
-        recordBook.addGrade("Math", GradeType.ОТЛИЧНО, 2, FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Algorithms", GradeType.ХОРОШО, 3, FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Math", GradeType.ОТЛИЧНО, 3, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Math", Grade.GradeType.ОТЛИЧНО, 2, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Algorithms", Grade.GradeType.ХОРОШО, 3, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Math", Grade.GradeType.ОТЛИЧНО, 3, FormOfAssessment.ЭКЗАМЕН);
 
         System.out.println("Средний балл: " + recordBook.calculateAverageScore());
         System.out.println("Можно перевестись на бюджет: " + recordBook.canTransferToBudget());

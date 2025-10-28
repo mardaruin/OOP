@@ -14,11 +14,11 @@ public class StudentRecordBookTest {
     @Test
     public void testCalculateAverageScore() {
         StudentRecordBook recordBook = new StudentRecordBook(StudingForm.БЮДЖЕТ);
-        recordBook.addGrade("Math", GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Physics", GradeType.ХОРОШО, 1, FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Programming", GradeType.ОТЛИЧНО, 2,
+        recordBook.addGrade("Math", Grade.GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Physics", Grade.GradeType.ХОРОШО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Programming", Grade.GradeType.ОТЛИЧНО, 2,
                 FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
-        recordBook.addGrade("Algorithms", GradeType.ХОРОШО, 2,
+        recordBook.addGrade("Algorithms", Grade.GradeType.ХОРОШО, 2,
                 FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
 
         double averageScore = recordBook.calculateAverageScore();
@@ -28,25 +28,27 @@ public class StudentRecordBookTest {
     @Test
     public void testCanTransferToBudget() {
         StudentRecordBook recordBook = new StudentRecordBook(StudingForm.ПЛАТНОЕ);
-        recordBook.addGrade("Math", GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Physics", GradeType.ХОРОШО, 1, FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Programming", GradeType.ОТЛИЧНО, 2,
+        recordBook.addGrade("Math", Grade.GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Physics", Grade.GradeType.ХОРОШО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Programming", Grade.GradeType.ОТЛИЧНО, 2,
                 FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
-        recordBook.addGrade("Algorithms", GradeType.ХОРОШО, 2,
+        recordBook.addGrade("Algorithms", Grade.GradeType.ХОРОШО, 2,
                 FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
 
         boolean canTransfer = recordBook.canTransferToBudget();
         assertTrue(canTransfer);
+        canTransfer = recordBook.canTransferToBudget();
+        assertFalse(canTransfer);
     }
 
     @Test
     public void testCanNotTransferToBudgetFromBudget() {
         StudentRecordBook recordBook = new StudentRecordBook(StudingForm.БЮДЖЕТ);
-        recordBook.addGrade("Math", GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Physics", GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Programming", GradeType.ОТЛИЧНО, 2,
+        recordBook.addGrade("Math", Grade.GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Physics", Grade.GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Programming", Grade.GradeType.ОТЛИЧНО, 2,
                 FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
-        recordBook.addGrade("Algorithms", GradeType.ХОРОШО, 2,
+        recordBook.addGrade("Algorithms", Grade.GradeType.ХОРОШО, 2,
                 FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
 
         boolean canTransfer = recordBook.canTransferToBudget();
@@ -56,12 +58,12 @@ public class StudentRecordBookTest {
     @Test
     public void testCanNotTransferToBudget() {
         StudentRecordBook recordBook = new StudentRecordBook(StudingForm.ПЛАТНОЕ);
-        recordBook.addGrade("Math", GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Physics", GradeType.УДОВЛЕТВОРИТЕЛЬНО, 1,
+        recordBook.addGrade("Math", Grade.GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Physics", Grade.GradeType.УДОВЛЕТВОРИТЕЛЬНО, 1,
                 FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Programming", GradeType.ОТЛИЧНО, 2,
+        recordBook.addGrade("Programming", Grade.GradeType.ОТЛИЧНО, 2,
                 FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
-        recordBook.addGrade("Algorithms", GradeType.ХОРОШО, 2,
+        recordBook.addGrade("Algorithms", Grade.GradeType.ХОРОШО, 2,
                 FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
 
         boolean canTransfer = recordBook.canTransferToBudget();
@@ -71,14 +73,16 @@ public class StudentRecordBookTest {
     @Test
     public void testCanGetRedDiploma() {
         StudentRecordBook recordBook = new StudentRecordBook(StudingForm.БЮДЖЕТ);
-        recordBook.addGrade("Math", GradeType.ОТЛИЧНО, 1,
+        recordBook.addGrade("Math", Grade.GradeType.ОТЛИЧНО, 1,
                 FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Physics", GradeType.ОТЛИЧНО, 1,
+        recordBook.addGrade("Physics", Grade.GradeType.ОТЛИЧНО, 1,
                 FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Programming", GradeType.ОТЛИЧНО, 2,
+        recordBook.addGrade("Programming", Grade.GradeType.ОТЛИЧНО, 2,
                 FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
-        recordBook.addGrade("Algorithms", GradeType.ОТЛИЧНО, 2,
+        recordBook.addGrade("Algorithms", Grade.GradeType.ОТЛИЧНО, 2,
                 FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
+        recordBook.addGrade("Algorithms", Grade.GradeType.ОТЛИЧНО, 2,
+                FormOfAssessment.КВАЛИФИКАЦИОННАЯ_РАБОТА);
 
         boolean canGetRedDiploma = recordBook.canGetRedDiploma();
         assertTrue(canGetRedDiploma);
@@ -87,12 +91,30 @@ public class StudentRecordBookTest {
     @Test
     public void testCanGetRedDiplomaWithSatisfactory() {
         StudentRecordBook recordBook = new StudentRecordBook(StudingForm.БЮДЖЕТ);
-        recordBook.addGrade("Math", GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Physics", GradeType.УДОВЛЕТВОРИТЕЛЬНО, 1, FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Programming", GradeType.ОТЛИЧНО, 2,
+        recordBook.addGrade("Math", Grade.GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Physics", Grade.GradeType.УДОВЛЕТВОРИТЕЛЬНО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Programming", Grade.GradeType.ОТЛИЧНО, 2,
                 FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
-        recordBook.addGrade("Algorithms", GradeType.ХОРОШО, 2,
+        recordBook.addGrade("Algorithms", Grade.GradeType.ХОРОШО, 2,
                 FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
+        recordBook.addGrade("Algorithms", Grade.GradeType.ОТЛИЧНО, 2,
+                FormOfAssessment.КВАЛИФИКАЦИОННАЯ_РАБОТА);
+
+        boolean canGetRedDiploma = recordBook.canGetRedDiploma();
+        assertFalse(canGetRedDiploma);
+    }
+
+    @Test
+    public void testCanNotGetRedDiplomaQualificationWork() {
+        StudentRecordBook recordBook = new StudentRecordBook(StudingForm.БЮДЖЕТ);
+        recordBook.addGrade("Math", Grade.GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Physics", Grade.GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Programming", Grade.GradeType.ОТЛИЧНО, 2,
+                FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
+        recordBook.addGrade("Algorithms", Grade.GradeType.ОТЛИЧНО, 2,
+                FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
+        recordBook.addGrade("Algorithms", Grade.GradeType.ХОРОШО, 2,
+                FormOfAssessment.КВАЛИФИКАЦИОННАЯ_РАБОТА);
 
         boolean canGetRedDiploma = recordBook.canGetRedDiploma();
         assertFalse(canGetRedDiploma);
@@ -101,11 +123,11 @@ public class StudentRecordBookTest {
     @Test
     public void testEligibleForScholarshipIncrease() {
         StudentRecordBook recordBook = new StudentRecordBook(StudingForm.БЮДЖЕТ);
-        recordBook.addGrade("Math", GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Physics", GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
-        recordBook.addGrade("Programming", GradeType.ОТЛИЧНО, 2,
+        recordBook.addGrade("Math", Grade.GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Physics", Grade.GradeType.ОТЛИЧНО, 1, FormOfAssessment.ЭКЗАМЕН);
+        recordBook.addGrade("Programming", Grade.GradeType.ОТЛИЧНО, 2,
                 FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
-        recordBook.addGrade("Algorithms", GradeType.ОТЛИЧНО, 2,
+        recordBook.addGrade("Algorithms", Grade.GradeType.ОТЛИЧНО, 2,
                 FormOfAssessment.ДИФФЕРЕНЦИРОВАННЫЙ_ЗАЧЁТ);
 
         boolean eligibleForScholarshipIncrease = recordBook.eligibleForScholarshipIncrease();
